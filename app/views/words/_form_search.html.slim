@@ -1,0 +1,24 @@
+div.sidebar_search
+  = form_tag(words_path, :method => "get", id: "search-form", :remote => true) do
+    = text_field_tag :search, params[:search], placeholder: "Search Posts", class: 'params_field_search'
+    = submit_tag "Search", :name => nil, class: 'button_search'
+  br
+  = form_tag(words_path, :method => "get", id: "words-param-form") do
+    = label_tag 'Set range', nil, class: 'label_search'
+    br
+    = text_field_tag :id_from, params[:id_from], placeholder: "from", class: 'params_field_range'
+    = text_field_tag :id_to, params[:id_to], placeholder: "to", class: 'params_field_range'
+    br
+    br
+    = label_tag 'Take some latest words', nil, class: 'label_search'
+    br
+    = text_field_tag :end_ids, params[:end_ids], placeholder: "amount of words", class: 'params_field'
+    br
+    br
+    = label_tag 'Starting with letter(s)', nil, class: 'label_search'
+    br
+    = text_field_tag :first_letter, params[:first_letter], placeholder: "a, b, c", class: 'params_field'
+    = hidden_field_tag :offset, 0
+    br
+    br
+    = submit_tag "search", :name => nil, class: 'button_search'

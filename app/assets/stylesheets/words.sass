@@ -1,0 +1,313 @@
+// Place all the styles related to the Words controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// $V: Verdana
+$AB: 'Arial black' 
+$V: Verdana 
+$R: 'Roboto', sans-serif
+
+.wordEng, .wordRus 
+  font-family: 'Roboto', sans-serif
+  font-size: 50px
+  font-weight: 300
+  color: white
+  padding: 25px
+  margin: 0 auto
+  text-align: center
+  text-decoration: none
+
+.wordEng
+  border-bottom: 2px solid #E5E9F9
+
+.show_word
+  font-family: 'Roboto', sans-serif
+  font-size: 50px
+  color: white
+  background-color: #293973
+  padding: 2px 15px 2px 15px
+  font-weight: 300
+  // border-radius: 10px
+
+.to_google 
+  color: white
+  font-family: 'Roboto', sans-serif
+  text-decoration: none
+  font-size: 27px
+  margin-left: 10%
+
+.hideRus
+  background-color: #D1CB8C
+  height: 70px
+  width: 280px
+  margin-left: 120px
+  margin-top: 25px
+  -ms-transform: rotate(7deg) /* IE 9 */
+  -webkit-transform: rotate(7deg) /* Chrome, Safari, Opera */
+  transform: rotate(7deg)
+  position: absolute
+
+.content_word
+  padding-top: 10%
+  display: block
+  margin: auto
+  width: 100%
+
+.window_word 
+  background-color: #3A50A1
+  width: 500px
+  text-align: center
+  margin: auto
+  position: relative
+  // border-radius: 10px
+  -webkit-box-shadow: 21px 21px 0px 5px rgba(25,37,57,1)
+  -moz-box-shadow: 21px 21px 0px 5px rgba(25,37,57,1)
+  box-shadow: 21px 21px 0px 5px rgba(25,37,57,1)
+
+.back_link 
+  text-decoration: none
+  background-color: #273246
+  color: white
+  font-family: 'Roboto', sans-serif
+  padding: 15px
+  padding-left: 20px
+  font-size: 22px
+  border-radius: 0px 0px 40px 0px
+  display: inline-block
+  width: 150px
+  &:hover 
+    background-color: #273246
+    transition-property: background-color
+    transition-duration: 0.4s, 0.4s
+
+.content_new
+  padding-top: 7%
+  display: block
+  margin: auto
+  position: relative
+  width: 100%
+  text-align: center
+
+.part_of_speech_td
+  font-family: 'Roboto', sans-serif
+  background-color: #F5F7FD
+  text-align: center
+  font-size: 22px
+  color: #3E3D53
+  width: 220px
+  font-weight: 300
+
+.part_of_speech_translate_td
+  font-family: 'Roboto', sans-serif
+  // text-align: center
+  padding-left: 10px
+  padding-right: 10px
+  background-color: #293973
+  font-size: 17px
+  font-weight: 300
+  color: white
+
+.info_word 
+  height: 40px
+  min-height: 30px
+
+.examples_td
+  background-color: #3B467C
+  color: white
+  font-size: 18px
+  text-align: center
+  height: 30px
+  width: auto
+  padding: 10px
+  font-weight: 400
+
+.show_word_table
+  max-width: 80%
+
+.get_word 
+  font-family: 'Roboto', sans-serif
+  text-decoration: none
+  font-size: 60px
+  margin: 0 auto
+  text-align: center
+  color: white
+  width: 100%
+  margin-top: 5%
+  position: absolute
+
+.upper-nav 
+  height: 60px
+  width: 100%
+  line-height: 60px
+  margin: 0
+  padding: 0
+  background-color: #3A50A1
+
+.index_word_table
+  width: 900px
+  font-family: 'Roboto', sans-serif
+  font-size: 22px
+  text-align: center
+
+.info_word_index
+  color: white
+
+.part_of_speech_td_index
+  background-color: #F5F7FD
+
+.part_of_speech_translate_td_index
+  background-color: #293973
+  color: white
+  font-weight: 300
+
+.scroll_index_word
+  height: 655px
+  overflow-y: scroll
+  margin-top: 1%
+  margin: 0 auto
+  width: 1000px
+
+.index_rest
+  background-color: #3A50A1
+  color: white
+  font-family: 'Roboto', sans-serif
+  text-decoration: none
+  outline: none
+
+.info_count
+  font-family: 'Roboto', sans-serif
+  position: absolute
+  margin: 0
+  padding: 0
+  right: 0
+  padding-right: 40px
+  padding-left: 40px
+  cursor: default
+  border-radius: 0px 0px 0px 10px
+  padding: 10px
+  font-size: 24px
+  color: #707D93
+  // background-color: #E2E6ED
+
+.REST_links
+  text-decoration: none
+  outline: none
+  color: white
+  margin-left: 20px
+  font-size: 24px
+  font-family: 'Roboto', sans-serif
+  font-weight: 400
+  &:hover 
+    color: #FEC6DE
+    transition-property: color
+    transition-duration: 0.4s, 0.4s
+
+.create_field 
+  font-family: 'Roboto', sans-serif
+  text-decoration: none
+  outline: none
+  height: 60px
+  text-align: center
+  color: white
+  -webkit-box-shadow: 21px 21px 0px 5px rgba(25,37,57,1)
+  -moz-box-shadow: 21px 21px 0px 5px rgba(25,37,57,1)
+  box-shadow: 21px 21px 0px 5px rgba(25,37,57,1)
+  border: none
+  // border-radius: 70px
+  background-color: #3A50A1
+  font-weight: 300
+  width: 800px
+  margin-top: 10%
+  font-size: 40px
+
+.create_button
+  font-family: 'Roboto', sans-serif
+  text-decoration: none
+  font-weight: 300
+  outline: none
+  border: none
+  color: white
+  font-size: 34px
+  background-color: #3A50A1
+  margin-top: 60px
+
+.edit_label 
+  font-family: 'Roboto', sans-serif
+  color: white
+  font-size: 29px
+  padding-left: 50px
+  padding-right: 10px
+
+tr.tr_edit
+  background-color: #3A50A1
+  text-align: right
+
+.edit_field
+  font-family: 'Roboto', sans-serif
+  color: white
+  background-color: #1A2539
+  border: none
+  outline: none
+  text-decoration: none
+  font-size: 16px
+  padding-top: 10px
+  padding-bottom: 10px
+  padding-left: 10px
+  width: 600px
+
+.editing_button
+  background-color: #1A2539
+  color: white
+  font-size: 22px
+  border: none
+  outline: none
+  text-decoration: none
+
+
+  /******SIDEBAR******/
+
+.options_search_button
+  text-decoration: none
+  height: 35px
+  margin: 10px
+  cursor: pointer
+
+.sidebar_search
+  position: absolute
+  padding: 20px
+  width: 300px
+  text-align: center
+  color: white
+  left: 0
+  margin-left: 40px
+  border-radius: 10px
+  display: none
+  background-color: #1A2539
+  overflow-x: hidden
+
+.label_search
+  font-family: 'Roboto', sans-serif
+
+.params_field, .params_field_range, .params_field_search
+  font-family: 'Roboto', sans-serif
+  text-align: center
+  // text-decoration: none
+  background-color: white
+  color: #1A2539
+  // border-radius: 5px
+  outline: none
+  border: none
+
+.params_field_search
+  margin-right: 10px
+  padding: 3px
+
+.params_field_range
+  width: 80px
+  margin-left: 5px
+
+.button_search
+  color: #1A2539
+  outline: none
+  padding: 3px 10px 3px 10px
+  background-color: white
+  border: none

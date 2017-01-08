@@ -1,0 +1,8 @@
+= link_to 'My words', words_index_path, class: 'REST_links'
+= link_to 'Add word', new_word_path, class: 'REST_links'
+= link_to 'Edit word', edit_word_path(word), class: 'REST_links', id: 'REST_edit'
+= link_to 'More meanings', word_path(word), class: 'REST_links', id: 'REST_show'
+= link_to 'Delete word',  word_path(word),
+                          method: :delete, 
+                          data: { confirm: 'Are you sure?' },
+                          class: 'REST_links'

@@ -1,0 +1,17 @@
+div.upper-nav 
+  span.REST_links My words
+= link_to 'Back', words_path, class: 'back_link'
+span.info_count You know #{@words.length} words
+div.scroll_index_word
+  table.index_word_table
+    tr.info_word_index
+    - @words.each do |words| 
+      tr.info_word_index
+      td.part_of_speech_td_index #{words.eng}
+      td.part_of_speech_translate_td_index #{words.rus}
+      td.index_rest = link_to 'More', word_path(words), class: 'index_rest'
+      td.index_rest = link_to 'Edit', edit_word_path(words), class: 'index_rest'
+      td.index_rest = link_to 'Delete',  word_path(words),
+                              class: 'index_rest',
+                              method: :delete, 
+                              data: { confirm: 'Are you sure?' }

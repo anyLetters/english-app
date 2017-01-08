@@ -1,0 +1,12 @@
+div.upper-nav 
+  span.REST_links Word
+= link_to 'back', words_path, class: 'back_link'
+span.info_count You know #{@count.length} words
+
+p
+  span.show_word #{@word.eng.capitalize}
+p
+  span.show_word #{@word.rus.mb_chars.capitalize.to_s}
+br
+= render partial: 'part_of_speech'
+

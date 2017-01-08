@@ -1,0 +1,65 @@
+= form_for @word do |f| 
+  table
+    tr class='tr_edit'
+      td
+        = f.label :eng, class: 'editing_label', class: 'edit_label'
+      td
+        = f.text_field :eng, class: 'editing_field', class: 'edit_field'
+      tr class='tr_edit'
+        td
+          = f.label :rus, class: 'editing_label', class: 'edit_label'
+        td
+          = f.text_field :rus, class: 'editing_field', class: 'edit_field'
+      tr class='tr_edit'
+        td
+          = f.label :noun, class: 'editing_label', class: 'edit_label'
+        td
+          = f.text_field :noun, class: 'editing_field', class: 'edit_field'
+      tr class='tr_edit'
+        td
+          = f.label :verb, class: 'editing_label', class: 'edit_label'
+        td
+          = f.text_field :verb, class: 'editing_field', class: 'edit_field'
+      tr class='tr_edit'
+        td
+          = f.label :adverb, class: 'editing_label', class: 'edit_label'
+        td
+          = f.text_field :adverb, class: 'editing_field', class: 'edit_field'
+      tr class='tr_edit'
+        td
+          = f.label :adjective, class: 'editing_label', class: 'edit_label'
+        td
+          = f.text_field :adjective, class: 'editing_field', class: 'edit_field'
+      tr class='tr_edit'
+        td
+          = f.label :pronoun, class: 'editing_label', class: 'edit_label'
+        td
+          = f.text_field :pronoun, class: 'editing_field', class: 'edit_field'
+      tr class='tr_edit'
+        td
+          = f.label :particle, class: 'editing_label', class: 'edit_label'
+        td 
+          = f.text_field :particle, class: 'editing_field', class: 'edit_field'
+      tr class='tr_edit'
+        td
+          = f.label :preposition, class: 'editing_label', class: 'edit_label'
+        td
+          = f.text_field :preposition, class: 'editing_field', class: 'edit_field'
+      tr class='tr_edit'
+        td 
+          = f.label :conjunction, class: 'editing_label', class: 'edit_label'
+        td
+          = f.text_field :conjunction, class: 'editing_field', class: 'edit_field'
+      tr class='tr_edit'
+        td
+          = f.label :interjection, class: 'editing_label', class: 'edit_label'
+        td
+          = f.text_field :interjection, class: 'editing_field', class: 'edit_field'
+      tr class='tr_edit'
+        td
+          = f.label :translation, class: 'editing_label', class: 'edit_label'
+        td
+          = f.text_field :translation, class: 'editing_field', class: 'edit_field'
+      tr
+        td
+          = f.submit :'CONFIRM', class: 'editing_button'
