@@ -1,0 +1,15 @@
+= form_for @phrase do |f| 
+  table
+    tr class='tr_edit'
+      td
+        = f.label :'Original phrase', class: 'editing_label', class: 'edit_label'
+      td
+        = f.text_field :phr_eng, class: 'editing_field', class: 'edit_field'
+      tr class='tr_edit'
+        td
+          = f.label :'Russian translate', class: 'editing_label', class: 'edit_label'
+        td
+          = f.text_field :phr_rus, class: 'editing_field', class: 'edit_field'
+      tr
+        td
+          = f.submit :'CONFIRM', class: 'editing_button'

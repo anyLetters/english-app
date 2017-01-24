@@ -191,7 +191,6 @@ class WordsController < ApplicationController
   def show
     @word = Word.find(params[:id])
     @count = Word.all
-    @translation = eval(@word.translation)
 
     #request to yandex and getting json
     require 'net/https'
@@ -223,9 +222,6 @@ class WordsController < ApplicationController
     res.each do |i|
       @examples.push(i['text'])
     end
-    
-    @to_google = 'https://translate.google.ru/#en/ru/'
-    @to_google << @word.eng
   end
   
   def edit
