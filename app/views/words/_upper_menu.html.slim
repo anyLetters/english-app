@@ -6,3 +6,4 @@
                           method: :delete, 
                           data: { confirm: 'Are you sure?' },
                           class: 'REST_links'
+= link_to_if words_path, 'To google', 'https://translate.google.ru/#en/ru/' + @word.eng, class: 'to_google', :target => '_blank'
