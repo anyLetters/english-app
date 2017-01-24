@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   get 'words' => 'words#word'
   get 'words/index' => 'words#index'
-  resources :words
+  resources :words, :phrases
+  get 'phrases' => 'phrases#phrase'
+  get 'phreses/index' => 'phrases#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -5,7 +5,6 @@ class WordsController < ApplicationController
   has_scope :by_latest_ids, :using => :end_ids, only: :word, :type => :hash
 
   def word
-
     offset = params[:offset].present? && params[:offset].to_i > 0 ? params[:offset] : 0
 
     if params[:id_from].blank? && params[:id_to].blank? && params[:first_letter].blank? && params[:end_ids].blank?
