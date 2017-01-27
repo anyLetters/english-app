@@ -1,8 +1,7 @@
 = form_for @phrase do |f| 
-
   br
-  = f.text_field :phr_eng, class: 'create_phrase_eng', :autofocus=>true
+  = f.text_field :phr_eng, class: 'create_phrase_eng', :autofocus=>true, placeholder: "Phrase"
   br
-   = f.text_field :phr_rus, class: 'create_phrase_eng'
+   = f.text_field :phr_rus, class: 'create_phrase_eng', placeholder: "Translate"
   br
   = f.submit :'NEW', class: 'create_button'
