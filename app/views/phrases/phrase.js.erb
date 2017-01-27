@@ -1,0 +1,8 @@
+$(".content_word").html("<%= j  (render partial: 'random_phrase', locals: { phrase: @phrase } ) %>"); 
+$(".upper-nav").html("<%= j  (render partial: 'upper_menu', locals: { phrase: @phrase } ) %>"); 
+$('.phrase_rus').hide();
+hideRusPhrase = $(".hide_rus_phrase");
+hideRusPhrase.on('click', function () {
+  $(hideRusPhrase).hide();
+  $('.phrase_rus').show();
+});

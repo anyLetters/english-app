@@ -191,7 +191,8 @@ class WordsController < ApplicationController
   def show
     @word = Word.find(params[:id])
     @count = Word.all
-
+    @translation = eval(@word.translation)
+    
     #request to yandex and getting json
     require 'net/https'
     require 'openssl'

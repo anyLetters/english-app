@@ -1,5 +1,6 @@
-div.window_word  
-  p.wordEng #{phrase.phr_eng}
-  div.hideRus
-  p.wordRus #{phrase.phr_rus}
-= link_to "Next", words_path(:id_from => params[:id_from], :id_to => params[:id_to], :first_letter => params[:first_letter], :end_ids => params[:end_ids], :offset => params[:offset].to_i + 1), :remote => true, class: 'get_word'
+div.window_phrase 
+  p.phrase_eng #{phrase.phr_eng}
+  div.hide_rus_phrase show
+  p.phrase_rus #{phrase.phr_rus}
+div.next_phrase_div
+  = link_to "Next", phrases_path, :remote => true, class: 'get_phrase'

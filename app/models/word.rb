@@ -10,6 +10,6 @@ class Word < ActiveRecord::Base
   # scope :by_pos, -> noun, verb, adverb, adjective, pronoun, particle, preposition, conjunction, interjection {where("noun = '#{noun}' OR verb = '#{verb}' OR adverb = '#{adverb}' OR adjective = '#{adjective}' OR pronoun = '#{pronoun}' OR particle = '#{particle}' OR preposition = '#{preposition}' OR conjunction = '#{conjunction}' OR interjection = '#{interjection}'")}
 
   validates :eng, :rus, :noun, :verb, :adverb, :adjective, :pronoun, :particle, :preposition, :conjunction, :interjection, :translation, presence: true
-  validates :eng, uniqueness: true
+  validates :eng, uniqueness: true, presence: true
 
 end
