@@ -3,6 +3,11 @@ class PhrasesController < ApplicationController
   def phrase
     @phrase = Phrase.order("RANDOM()").first
     @count = Phrase.all
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def index
