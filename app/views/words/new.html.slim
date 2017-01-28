@@ -1,10 +1,10 @@
 div.upper-nav 
   span.REST_links New word
 = link_to 'Back', @word, class: 'back_link'
-span.info_count You know #{@count.length} words
 div.content_new
   = render 'form_new'
 
-= @word.errors.full_messages.first if @word.errors.any?
+
+
 
 

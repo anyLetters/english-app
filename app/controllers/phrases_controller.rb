@@ -16,7 +16,6 @@ class PhrasesController < ApplicationController
 
   def new
     @phrase = Phrase.new
-    @count = Phrase.all
   end
 
   def create

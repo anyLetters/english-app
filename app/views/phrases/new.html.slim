@@ -1,10 +1,5 @@
 div.upper-nav 
   span.REST_links New phrase
 = link_to 'Back', @phrase, class: 'back_link'
-span.info_count You know #{@count.length} phrases
 div.content_new
   = render 'form_new'
-
-= @phrase.errors.full_messages.first if @phrase.errors.any?
-
-

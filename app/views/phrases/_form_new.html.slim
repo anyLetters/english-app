@@ -2,6 +2,9 @@
   br
   = f.text_field :phr_eng, class: 'create_phrase_eng', :autofocus=>true, placeholder: "Phrase"
   br
-   = f.text_field :phr_rus, class: 'create_phrase_eng', placeholder: "Translate"
+  = f.text_field :phr_rus, class: 'create_phrase_eng', placeholder: "Translate"
   br
   = f.submit :'NEW', class: 'create_button'
+
+div.error_msg
+  = @phrase.errors.full_messages.first if @phrase.errors.any?

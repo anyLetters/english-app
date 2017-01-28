@@ -1,4 +1,4 @@
-class Word < ActiveRecord::Base
+class Word < ApplicationRecord
 
   def self.search(search)
     where("eng LIKE ?", "#{search}") 

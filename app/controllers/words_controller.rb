@@ -36,7 +36,6 @@ class WordsController < ApplicationController
 
   def new
     @word = Word.new
-    @count = Word.all
   end
 
   def create
