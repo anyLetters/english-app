@@ -24,6 +24,12 @@ class WordsController < ApplicationController
       @word = res.first
     end
 
+    @date = @word.created_at.to_date.to_s.split('-')
+    m = {'01' => 'January', '02' => 'February', '03' => 'March', '04' => 'April', '05' => 'May', '06' => 'June', '07' => 'July', '08' => 'August', '09' => 'September', '10' => 'October', '11' => 'November', '12' => 'December'}
+    m = m.select{|key| key == @date[1]}
+    @date[1] = m.first[1]
+    @date.slice!(2)
+
     respond_to do |format|
       format.html
       format.js
@@ -56,7 +62,6 @@ class WordsController < ApplicationController
     response = Net::HTTP.get(uri)
     json_response = JSON.parse response
     
-    part_of_speech = []
     translation = {}
     rus = json_response['def'][0]['tr'][0]['text']
     
@@ -71,114 +76,47 @@ class WordsController < ApplicationController
     interjection = []
 
     json_response['def'].each do |i|
-      part_of_speech.push(i['pos'])
-        i['tr'].each do |i|
-          if i['pos'] == 'noun'
-            noun.push(i['text'])
-            translation[:noun] = noun
-          end
-          if i['pos'] == 'verb'
-            verb.push(i['text'])
-            translation[:verb] = verb
-          end
-          if i['pos'] == 'adverb'
-            adverb.push(i['text'])
-            translation[:adverb] = adverb
-          end
-          if i['pos'] == 'adjective'
-            adjective.push(i['text'])
-            translation[:adjective] = adjective
-          end
-          if i['pos'] == 'pronoun'
-            pronoun.push(i['text'])
-            translation[:pronoun] = pronoun
-          end
-          if i['pos'] == 'particle'
-            particle.push(i['text'])
-            translation[:particle] = particle
-          end
-          if i['pos'] == 'preposition'
-            preposition.push(i['text'])
-            translation[:preposition] = preposition
-          end
-          if i['pos'] == 'conjunction'
-            conjunction.push(i['text'])
-            translation[:conjunction] = conjunction
-          end
-          if i['pos'] == 'interjection'
-            interjection.push(i['text'])
-            translation[:interjection] = interjection
-          end
+      i['tr'].each do |i|
+        if i['pos'] == 'noun'
+          noun.push(i['text'])
+          translation[:noun] = noun
         end
+        if i['pos'] == 'verb'
+          verb.push(i['text'])
+          translation[:verb] = verb
+        end
+        if i['pos'] == 'adverb'
+          adverb.push(i['text'])
+          translation[:adverb] = adverb
+        end
+        if i['pos'] == 'adjective'
+          adjective.push(i['text'])
+          translation[:adjective] = adjective
+        end
+        if i['pos'] == 'pronoun'
+          pronoun.push(i['text'])
+          translation[:pronoun] = pronoun
+        end
+        if i['pos'] == 'particle'
+          particle.push(i['text'])
+          translation[:particle] = particle
+        end
+        if i['pos'] == 'preposition'
+          preposition.push(i['text'])
+          translation[:preposition] = preposition
+        end
+        if i['pos'] == 'conjunction'
+          conjunction.push(i['text'])
+          translation[:conjunction] = conjunction
+      end
+      if i['pos'] == 'interjection'
+        interjection.push(i['text'])
+        translation[:interjection] = interjection
+      end
+      end
     end
 
-    part_of_speech.each do |i|
-      if i == 'noun' 
-        noun = 'yes'
-      end 
-      if i == 'verb' 
-        verb = 'yes'
-      end 
-      if i == 'adverb' 
-        adverb = 'yes'
-      end 
-      if i == 'adjective' 
-        adjective = 'yes'
-      end 
-      if i == 'pronoun' 
-        pronoun = 'yes'
-      end 
-      if i == 'particle' 
-        particle = 'yes'
-      end  
-      if i == 'preposition' 
-        preposition = 'yes'
-      end 
-      if i == 'conjunction' 
-        conjunction = 'yes'
-      end 
-      if i == 'interjection' 
-        interjection = 'yes'
-      end 
-    end
-
-    if noun.empty? 
-      noun = 'no'
-    end
-
-    if verb.empty? 
-      verb = 'no'
-    end
-
-    if adverb.empty? 
-      adverb = 'no'
-    end
-
-    if adjective.empty? 
-      adjective = 'no'
-    end
-
-    if pronoun.empty? 
-      pronoun = 'no'
-    end
-
-    if particle.empty? 
-      particle = 'no'
-    end
-
-    if preposition.empty? 
-      preposition = 'no'
-    end
-
-    if conjunction.empty? 
-      conjunction = 'no'
-    end
-
-    if interjection.empty? 
-      interjection = 'no'
-    end
-
-    @word = Word.new({ 'eng' => @word.eng.downcase, 'rus' => rus, 'noun' => noun, 'verb' => verb, 'adverb' => adverb, 'adjective' => adjective, 'pronoun' => pronoun, 'particle' => particle, 'preposition' => preposition, 'conjunction' => conjunction, 'interjection' => interjection, 'translation' => translation })
+    @word = Word.new({ 'eng' => @word.eng.downcase, 'rus' => rus, 'translation' => translation })
 
     if @word.save
       redirect_to word_path(@word)
@@ -248,6 +186,6 @@ class WordsController < ApplicationController
 
   private
     def word_params
-      params.require(:word).permit(:eng, :rus, :noun, :verb, :adverb, :adjective, :pronoun, :particle, :preposition, :conjunction, :interjection, :translation)
+      params.require(:word).permit(:eng, :rus, :translation)
     end
 end

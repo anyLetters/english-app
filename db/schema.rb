@@ -10,30 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124142746) do
+ActiveRecord::Schema.define(version: 20170201115954) do
 
   create_table "phrases", force: :cascade do |t|
     t.string   "phr_eng"
     t.string   "phr_rus"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "examp"
   end
 
   create_table "words", force: :cascade do |t|
     t.string   "eng"
     t.string   "rus"
-    t.string   "noun"
-    t.string   "verb"
-    t.string   "adverb"
-    t.string   "adjective"
-    t.string   "pronoun"
-    t.string   "particle"
-    t.string   "preposition"
-    t.string   "conjunction"
-    t.string   "interjection"
     t.string   "translation"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
