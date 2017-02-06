@@ -26,7 +26,8 @@ $R: 'Roboto', sans-serif
   background-color: #293973
   padding: 2px 15px 2px 15px
   font-weight: 300
-  // border-radius: 10px
+  display: inline-block
+  position: relative
 
 .to_google 
   color: white
@@ -80,10 +81,6 @@ $R: 'Roboto', sans-serif
   border-radius: 0px 0px 40px 0px
   display: inline-block
   width: 150px
-  &:hover 
-    background-color: #273246
-    transition-property: background-color
-    transition-duration: 0.4s, 0.4s
 
 .content_new
   padding-top: 7%
@@ -321,3 +318,37 @@ tr.tr_edit
   padding: 3px 10px 3px 10px
   background-color: white
   border: none
+
+.voice
+  position: absolute
+  cursor: pointer
+  height: 50px
+  margin-left: -20px
+  margin-top: -170px
+  outline: none
+
+.voice_word
+  position: absolute
+  cursor: pointer
+  height: 50px
+  margin-left: 20px
+  margin-top: 5px
+  outline: none
+
+.words_show
+  width: 100%
+  margin: 0 auto
+
+.back_new_link
+  text-decoration: none
+  color: white
+  font-family: $R
+  padding: 15px
+  background-color: #3B467C
+  padding-left: 20px
+  font-size: 22px
+  border-radius: 0px 40px 40px 0px
+  left: 0
+  position: absolute
+  margin-top: 60px
+  width: 150px

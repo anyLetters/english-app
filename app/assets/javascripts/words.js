@@ -11,3 +11,23 @@ $(document).ready(function(){
   })
 });
 });
+
+function voiceText() {
+
+  if (document.getElementsByClassName("word_eng").length > 0) {
+    var valueElem = document.getElementsByClassName("word_eng")[0].innerHTML;
+  }
+
+  if (document.getElementsByClassName("show_word").length > 0) {
+    var valueElem = document.getElementsByClassName("show_word")[0].innerHTML;
+  }
+
+  if (valueElem != 'undefined' && valueElem != '') {
+    responsiveVoice.speak(valueElem, "US English Male");
+
+  } else {
+    console.log('error');
+    
+  }
+
+};

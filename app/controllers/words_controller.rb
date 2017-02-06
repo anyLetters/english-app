@@ -47,7 +47,6 @@ class WordsController < ApplicationController
   def create
     @word = Word.new(word_params)
    
-    #request to yandex and getting json
     require 'net/https'
     require 'openssl'
     require 'open-uri'
@@ -58,61 +57,64 @@ class WordsController < ApplicationController
     uri.query = URI.encode_www_form(param)
     http = Net::HTTP.new(uri.host, uri.port, 'Content-Type' => 'application/json')
     http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE # read into this
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     response = Net::HTTP.get(uri)
     json_response = JSON.parse response
     
-    translation = {}
-    rus = json_response['def'][0]['tr'][0]['text']
-    
-    noun = []
-    verb = []
-    adjective = []
-    adverb = []
-    pronoun = []
-    particle = []
-    preposition = []
-    conjunction = []
-    interjection = []
+    if json_response['def'].present?
+      rus = json_response['def'][0]['tr'][0]['text']
 
-    json_response['def'].each do |i|
-      i['tr'].each do |i|
-        if i['pos'] == 'noun'
-          noun.push(i['text'])
-          translation[:noun] = noun
+      translation = {}
+    
+      noun = []
+      verb = []
+      adjective = []
+      adverb = []
+      pronoun = []
+      particle = []
+      preposition = []
+      conjunction = []
+      interjection = []
+
+      json_response['def'].each do |i|
+        i['tr'].each do |i|
+          if i['pos'] == 'noun'
+            noun.push(i['text'])
+            translation[:noun] = noun
+          end
+          if i['pos'] == 'verb'
+            verb.push(i['text'])
+            translation[:verb] = verb
+          end
+          if i['pos'] == 'adverb'
+            adverb.push(i['text'])
+            translation[:adverb] = adverb
+          end
+          if i['pos'] == 'adjective'
+            adjective.push(i['text'])
+            translation[:adjective] = adjective
+          end
+          if i['pos'] == 'pronoun'
+            pronoun.push(i['text'])
+            translation[:pronoun] = pronoun
+          end
+          if i['pos'] == 'particle'
+            particle.push(i['text'])
+            translation[:particle] = particle
+          end
+          if i['pos'] == 'preposition'
+            preposition.push(i['text'])
+            translation[:preposition] = preposition
+          end
+          if i['pos'] == 'conjunction'
+            conjunction.push(i['text'])
+            translation[:conjunction] = conjunction
         end
-        if i['pos'] == 'verb'
-          verb.push(i['text'])
-          translation[:verb] = verb
+        if i['pos'] == 'interjection'
+          interjection.push(i['text'])
+          translation[:interjection] = interjection
         end
-        if i['pos'] == 'adverb'
-          adverb.push(i['text'])
-          translation[:adverb] = adverb
         end
-        if i['pos'] == 'adjective'
-          adjective.push(i['text'])
-          translation[:adjective] = adjective
-        end
-        if i['pos'] == 'pronoun'
-          pronoun.push(i['text'])
-          translation[:pronoun] = pronoun
-        end
-        if i['pos'] == 'particle'
-          particle.push(i['text'])
-          translation[:particle] = particle
-        end
-        if i['pos'] == 'preposition'
-          preposition.push(i['text'])
-          translation[:preposition] = preposition
-        end
-        if i['pos'] == 'conjunction'
-          conjunction.push(i['text'])
-          translation[:conjunction] = conjunction
-      end
-      if i['pos'] == 'interjection'
-        interjection.push(i['text'])
-        translation[:interjection] = interjection
-      end
       end
     end
 
@@ -130,7 +132,6 @@ class WordsController < ApplicationController
     @count = Word.all
     @translation = eval(@word.translation)
     
-    #request to yandex and getting json
     require 'net/https'
     require 'openssl'
     require 'open-uri'
@@ -141,7 +142,7 @@ class WordsController < ApplicationController
     uri.query = URI.encode_www_form(param)
     http = Net::HTTP.new(uri.host, uri.port, 'Content-Type' => 'application/json')
     http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE # read into this
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     response = Net::HTTP.get(uri)
     json_response = JSON.parse response
 

@@ -1,11 +1,14 @@
 div.upper-nav 
   span.REST_links Word
-= link_to 'back', words_path, class: 'back_link'
+= link_to 'Back', words_path, class: 'back_link'
+= link_to 'New word', new_word_path, class: 'back_new_link'
 span.info_count You know #{@count.length} words
-p
-  span.show_word #{@word.eng.capitalize}
-p
-  span.show_word #{@word.rus.mb_chars.capitalize.to_s}
-br
+div.words_show
+  p
+    span.show_word #{@word.eng.capitalize}
+    = image_submit_tag ("volume.png"), class: 'voice_word', onclick: 'voiceText()'
+  p
+    span.show_word #{@word.rus.mb_chars.capitalize.to_s}
+  br
 = render partial: 'part_of_speech'
 
