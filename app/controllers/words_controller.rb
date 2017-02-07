@@ -17,7 +17,7 @@ class WordsController < ApplicationController
       @word = words.offset(params[:offset].to_i).limit(1).first
     end
 
-    @count = Word.all
+    @count = Word.all.length
 
     if params[:search]
       res = Word.search(params[:search])
@@ -129,7 +129,7 @@ class WordsController < ApplicationController
   
   def show
     @word = Word.find(params[:id])
-    @count = Word.all
+    @count = Word.all.length
     @translation = eval(@word.translation)
     
     require 'net/https'
@@ -165,7 +165,7 @@ class WordsController < ApplicationController
   
   def edit
     @word = Word.find(params[:id])
-    @count = Word.all
+    @count = Word.all.length
   end
   
   def update

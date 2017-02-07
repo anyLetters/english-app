@@ -12,7 +12,7 @@ $(document).ready(function(){
 });
 });
 
-function voiceText() {
+var voiceText = function() {
 
   if (document.getElementsByClassName("word_eng").length > 0) {
     var valueElem = document.getElementsByClassName("word_eng")[0].innerHTML;
@@ -31,3 +31,34 @@ function voiceText() {
   }
 
 };
+
+// function getRandomIntInclusive() {
+//   min = Math.ceil(1);
+//   max = Math.floor(100);
+//   return Math.floor(Math.random() * (max - min + 1)) + min;
+// }
+
+// window.onload = function () {
+//   var a = getRandomIntInclusive(),
+//       b = getRandomIntInclusive(),
+//       result = a + b,
+//       i = false;
+
+//   var getResponse = function() {
+//     alert('Выражение: ' + a + ' + ' + b + ' = ?');
+//     response = prompt('Введите ответ');
+
+//   }
+//   getResponse();
+
+//   while (i == false) {
+//     if (result == response) {
+//       alert('Правильный ответ, вы молодец!');
+//       i = true;
+//     } else {
+//       alert('Неправильный ответ, фи.');
+//       getResponse();
+
+//     }
+//   }
+// }

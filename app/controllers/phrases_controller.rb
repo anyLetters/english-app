@@ -2,7 +2,7 @@ class PhrasesController < ApplicationController
   
   def phrase
     @phrase = Phrase.order("RANDOM()").first
-    @count = Phrase.all
+    @count = Phrase.all.length
 
     @date = @phrase.created_at.to_date.to_s.split('-')
     m = {'01' => 'January', '02' => 'February', '03' => 'March', '04' => 'April', '05' => 'May', '06' => 'June', '07' => 'July', '08' => 'August', '09' => 'September', '10' => 'October', '11' => 'November', '12' => 'December'}
@@ -35,7 +35,7 @@ class PhrasesController < ApplicationController
 
   def edit
     @phrase = Phrase.find(params[:id])
-    @count = Phrase.all
+    @count = Phrase.all.length
   end
 
   def update
