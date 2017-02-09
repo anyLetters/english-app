@@ -1,5 +1,7 @@
 class WordsController < ApplicationController
 
+  include YandexDictionary
+
   has_scope :by_range_id, :using => [:id_to, :id_from], only: :word, :type => :hash
   has_scope :by_first_letter, :using => :first_letter, only: :word, :type => :hash
   has_scope :by_latest_ids, :using => :end_ids, only: :word, :type => :hash
@@ -46,75 +48,22 @@ class WordsController < ApplicationController
 
   def create
     @word = Word.new(word_params)
-   
-    require 'net/https'
-    require 'openssl'
-    require 'open-uri'
-    api = 'dict.1.1.20161212T091712Z.d11b1c913980aac3.5b44c16cdb6cdf672f61d26a6ec8dfa9baf31b0c'
-    text = @word.eng
-    uri = URI.parse('https://dictionary.yandex.net/api/v1/dicservice.json/lookup')
-    param = { :key => api, :lang => 'en-ru', :text => text }
-    uri.query = URI.encode_www_form(param)
-    http = Net::HTTP.new(uri.host, uri.port, 'Content-Type' => 'application/json')
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    response = Net::HTTP.get(uri)
-    json_response = JSON.parse response
+
+    json_response = translate(@word.eng)
     
     if json_response['def'].present?
       rus = json_response['def'][0]['tr'][0]['text']
 
       translation = {}
-    
-      noun = []
-      verb = []
-      adjective = []
-      adverb = []
-      pronoun = []
-      particle = []
-      preposition = []
-      conjunction = []
-      interjection = []
+
+      words = []
 
       json_response['def'].each do |i|
         i['tr'].each do |i|
-          if i['pos'] == 'noun'
-            noun.push(i['text'])
-            translation[:noun] = noun
-          end
-          if i['pos'] == 'verb'
-            verb.push(i['text'])
-            translation[:verb] = verb
-          end
-          if i['pos'] == 'adverb'
-            adverb.push(i['text'])
-            translation[:adverb] = adverb
-          end
-          if i['pos'] == 'adjective'
-            adjective.push(i['text'])
-            translation[:adjective] = adjective
-          end
-          if i['pos'] == 'pronoun'
-            pronoun.push(i['text'])
-            translation[:pronoun] = pronoun
-          end
-          if i['pos'] == 'particle'
-            particle.push(i['text'])
-            translation[:particle] = particle
-          end
-          if i['pos'] == 'preposition'
-            preposition.push(i['text'])
-            translation[:preposition] = preposition
-          end
-          if i['pos'] == 'conjunction'
-            conjunction.push(i['text'])
-            translation[:conjunction] = conjunction
+          word_part = i['pos'].to_sym
+          translation[word_part] = words.push(i['text'])
         end
-        if i['pos'] == 'interjection'
-          interjection.push(i['text'])
-          translation[:interjection] = interjection
-        end
-        end
+        words = []
       end
     end
 
@@ -131,20 +80,8 @@ class WordsController < ApplicationController
     @word = Word.find(params[:id])
     @count = Word.all.length
     @translation = eval(@word.translation)
-    
-    require 'net/https'
-    require 'openssl'
-    require 'open-uri'
-    api = 'dict.1.1.20161212T091712Z.d11b1c913980aac3.5b44c16cdb6cdf672f61d26a6ec8dfa9baf31b0c'
-    text = @word.eng
-    uri = URI.parse('https://dictionary.yandex.net/api/v1/dicservice.json/lookup')
-    param = { :key => api, :lang => 'en-ru', :text => text }
-    uri.query = URI.encode_www_form(param)
-    http = Net::HTTP.new(uri.host, uri.port, 'Content-Type' => 'application/json')
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    response = Net::HTTP.get(uri)
-    json_response = JSON.parse response
+
+    json_response = translate(@word.eng)
 
     res = []
     @examples = []

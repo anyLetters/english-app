@@ -31,34 +31,3 @@ var voiceText = function() {
   }
 
 };
-
-// function getRandomIntInclusive() {
-//   min = Math.ceil(1);
-//   max = Math.floor(100);
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
-
-// window.onload = function () {
-//   var a = getRandomIntInclusive(),
-//       b = getRandomIntInclusive(),
-//       result = a + b,
-//       i = false;
-
-//   var getResponse = function() {
-//     alert('Выражение: ' + a + ' + ' + b + ' = ?');
-//     response = prompt('Введите ответ');
-
-//   }
-//   getResponse();
-
-//   while (i == false) {
-//     if (result == response) {
-//       alert('Правильный ответ, вы молодец!');
-//       i = true;
-//     } else {
-//       alert('Неправильный ответ, фи.');
-//       getResponse();
-
-//     }
-//   }
-// }
