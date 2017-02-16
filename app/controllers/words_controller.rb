@@ -79,7 +79,7 @@ class WordsController < ApplicationController
   def show
     @word = Word.find(params[:id])
     @count = Word.all.length
-    @translation = eval(@word.translation)
+    @translation = JSON.parse(@word.translation.gsub(':','"').gsub('=>','":'))
 
     json_response = translate(@word.eng)
 

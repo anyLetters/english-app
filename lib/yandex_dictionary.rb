@@ -15,7 +15,6 @@ module YandexDictionary
       http.use_ssl = true
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       response = Net::HTTP.get(uri)
-
-      return json_response = JSON.parse response
+      json_response = JSON.parse response
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201115954) do
+ActiveRecord::Schema.define(version: 20170216113045) do
 
   create_table "phrases", force: :cascade do |t|
     t.string   "phr_eng"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170201115954) do
   create_table "words", force: :cascade do |t|
     t.string   "eng"
     t.string   "rus"
-    t.string   "translation"
+    t.text     "translation"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
