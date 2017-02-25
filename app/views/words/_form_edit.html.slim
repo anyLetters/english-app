@@ -1,20 +1,20 @@
 = form_for @word do |f| 
-  table
-    tr class='tr_edit'
+  table class='edit-table'
+    tr class='tr-edit'
       td
-        = f.label :eng, class: 'editing_label', class: 'edit_label'
+        = f.label :eng, class: 'edit-label'
       td
-        = f.text_field :eng, class: 'editing_field', class: 'edit_field'
-      tr class='tr_edit'
+        = f.text_field :eng, class: 'edit-field'
+      tr class='tr-edit'
         td
-          = f.label :rus, class: 'editing_label', class: 'edit_label'
+          = f.label :rus, class: 'edit-label'
         td
-          = f.text_field :rus, class: 'editing_field', class: 'edit_field'
-      tr class='tr_edit'
+          = f.text_field :rus, class: 'edit-field'
+      tr class='tr-edit'
         td
-          = f.label :translation, class: 'editing_label', class: 'edit_label'
+          = f.label :translation, class: 'edit-label'
         td
-          = f.text_field :translation, class: 'editing_field', class: 'edit_field'
+          = f.text_field :translation, class: 'edit-field'
       tr
         td
-          = f.submit :'CONFIRM', class: 'editing_button'
+          = f.submit :'CONFIRM', class: 'edit-button'

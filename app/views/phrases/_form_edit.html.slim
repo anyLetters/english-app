@@ -1,20 +1,20 @@
 = form_for @phrase do |f| 
   table
-    tr class='tr_edit'
+    tr class='tr-edit'
       td
-        = f.label :'Original phrase', class: 'editing_label', class: 'edit_label'
+        = f.label :'Original phrase', class: 'edit-label'
       td
-        = f.text_field :phr_eng, class: 'editing_field', class: 'edit_field'
-      tr class='tr_edit'
+        = f.text_field :phr_eng, class: 'edit-field'
+      tr class='tr-edit'
         td
-          = f.label :'Russian translate', class: 'editing_label', class: 'edit_label'
+          = f.label :'Russian translate', class: 'edit-label'
         td
-          = f.text_field :phr_rus, class: 'editing_field', class: 'edit_field'
-      tr class='tr_edit'
+          = f.text_field :phr_rus, class: 'edit-field'
+      tr class='tr-edit'
         td
-          = f.label :'Example', class: 'editing_label', class: 'edit_label'
+          = f.label :'Example', class: 'edit-label'
         td
-          = f.text_field :examp, class: 'editing_field', class: 'edit_field'
+          = f.text_field :examp, class: 'edit-field'
       tr
         td
-          = f.submit :'CONFIRM', class: 'editing_button'
+          = f.submit :'CONFIRM', class: 'editing-button'

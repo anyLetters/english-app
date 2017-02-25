@@ -6,22 +6,9 @@ $AB: 'Arial black'
 $V: Verdana 
 $R: 'Roboto', sans-serif
 
-.word_eng, .word_rus 
+.show-word
   font-family: $R
-  font-size: 50px
-  font-weight: 300
-  color: white
-  padding: 25px
-  margin: 0 auto
-  text-align: center
-  text-decoration: none
-
-.word_eng
-  border-bottom: 2px solid #E5E9F9
-
-.show_word
-  font-family: $R
-  font-size: 50px
+  font-size: 6.2vmin
   color: white
   background-color: #293973
   padding: 2px 15px 2px 15px
@@ -29,169 +16,218 @@ $R: 'Roboto', sans-serif
   display: inline-block
   position: relative
 
-.to_google 
+.to-google 
   color: white
   font-family: $R
   text-decoration: none
-  font-size: 22px
   float: right
   margin-right: 10px
 
-.hide_rus
-  background-color: #D1CB8C
-  height: 70px
-  width: 280px
-  margin-left: 120px
-  margin-top: 25px
-  -webkit-transform: rotate(7deg) /* Chrome, Safari, Opera */
-  transform: rotate(7deg)
-  position: absolute
-
-.content_word
-  padding-top: 10%
-  display: block
-  margin: auto
-  width: 100%
-
-.window_word 
-  background-color: #3A50A1
-  width: 500px
-  text-align: center
-  margin: auto
-  position: relative
-  // border-radius: 10px
-  -webkit-box-shadow: 21px 21px 0px 5px rgba(25,37,57,1)
-  -moz-box-shadow: 21px 21px 0px 5px rgba(25,37,57,1)
-  box-shadow: 21px 21px 0px 5px rgba(25,37,57,1)
-
-.next_word_div
-  text-align: center
+.rus-field
+  font-family: $R
+  font-weight: 300
+  color: white
+  padding: 25px
   margin: 0 auto
-  width: 100%
-  padding-top: 50px
+  text-align: center
+  background-color: #2E4089
+  text-decoration: none
 
-.back_link 
+.eng-field 
+  font-family: $R
+  font-weight: 300
+  color: white
+  padding: 25px
+  margin: 0 auto
+  text-align: center
+  text-decoration: none
+  border-bottom: 2px solid #E5E9F9
+
+.hide-rus
+  position: absolute
+  background-color: #2E4089
+  height: 47%
+  width: 100%
+  margin-left: -25px
+  margin-top: -25px
+  cursor: pointer
+
+.content-word
+  margin: auto
+  padding-top: 0
+  width: 100%
+  padding-top: 8vmin
+  top: calc(50% - 2.7vw) 
+  transform: translateY(-50%)
+  position: relative
+
+.content
+  position: relative
+  display: inline-block
+  width: 100%
+  text-align: center
+  // margin: 0 auto
+  height: calc(100% - 8vmin)
+
+.window-word 
+  background-color: #3A50A1
+  width: 64.5vmin
+  height: auto
+  text-align: center
+  display: block
+  font-size: 5.6vmin
+  margin: auto
+  margin-top: 1%
+  position: relative
+  // -webkit-box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(25,37,57,1)
+  // -moz-box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(25,37,57,1)
+  // box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(25,37,57,1)
+  -webkit-box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(17,24,51,1)
+  -moz-box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(17,24,51,1)
+  box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(17,24,51,1)
+
+.next-word-div
+  text-align: center
+  width: 100vw
+  padding-top: 3.5vw
+
+.back-link 
   text-decoration: none
   background-color: #273246
   color: white
   font-family: $R
-  padding: 15px
-  padding-left: 20px
-  font-size: 22px
+  font-size: 3vmin
+  padding: 1vw
+  padding-left: 1.25vw
   border-radius: 0px 0px 40px 0px
   display: inline-block
-  width: 150px
+  width: 9.4vw
 
-.content_new
-  padding-top: 7%
-  position: relative
+.content-new
+  padding-top: 7vw
   width: 100%
   text-align: center
 
-.part_of_speech_td
+.part-of-speech-td
   font-family: $R
+  font-size: 3vmin
   background-color: #F5F7FD
   text-align: center
-  font-size: 22px
   color: #3E3D53
-  width: 220px
+  width: 13vw
   font-weight: 300
 
-.part_of_speech_translate_td
+.part-of-speech-translate-td
   font-family: $R
-  // text-align: center
-  padding-left: 10px
-  padding-right: 10px
+  font-size: 2.2vmin
+  padding-right: 0.6vw
+  padding-left: 0.6vw
   background-color: #293973
-  font-size: 17px
   font-weight: 300
   color: white
 
-.info_word 
-  height: 40px
-  min-height: 30px
+.info-word 
+  height: 2.5vw
 
-.examples_td
+.examples-td
   background-color: #3B467C
   color: white
-  font-size: 18px
+  font-size: 2.4vmin
   text-align: center
-  height: 30px
+  height: auto
   width: auto
-  padding: 10px
+  padding: 0.6vw
   font-weight: 400
 
-.show_word_table
+.show-word-table
   max-width: 80%
+  min-width: 40%
 
-.get_word 
+.get-word 
   font-family: $R
   text-decoration: none
-  font-size: 60px
+  font-size: 7.7vmin
   text-align: center
   color: white
 
-.upper-nav 
-  height: 60px
+.upper-nav
   width: 100%
-  line-height: 60px
+  line-height: 7.6vmin
+  font-size: 3vmin
   margin: 0
   padding: 0
+  position: relative
+  display: block
   background-color: #3A50A1
+  -webkit-box-shadow: inset 0px 0px 85px -38px rgba(0,0,0,1)
+  -moz-box-shadow: inset 0px 0px 85px -38px rgba(0,0,0,1)
+  box-shadow: inset 0px 0px 85px -38px rgba(0,0,0,1)
 
-.index_word_table
-  width: 900px
+.index-word-table
+  width: 60vw
   font-family: $R
-  font-size: 22px
+  font-size: 2.8vmin
   text-align: center
 
-.info_word_index
+.info-word-index
   color: white
 
-.part_of_speech_td_index
+.part-of-speech-td-index
   background-color: #F5F7FD
 
-.part_of_speech_translate_td_index
+.part-of-speech-translate-td-index
   background-color: #293973
   color: white
   font-weight: 300
 
-.scroll_index_word
-  // height: 655px
+.scroll-index-word
   height: 78.7%
   overflow-y: scroll
   margin-top: 1%
   margin: 0 auto
-  width: 1000px
+  width: 65vw
 
-.index_rest
+.index-rest
   background-color: #3A50A1
   color: white
   font-family: $R
   text-decoration: none
   outline: none
 
-.info_count
+.info-count
   font-family: $R
-  position: absolute
-  margin: 0
-  padding: 0
-  right: 0
-  padding-right: 40px
-  padding-left: 40px
+  position: relative
+  display: inline-block
+  margin-top: -2.3vmin
+  float: right
   cursor: default
-  border-radius: 0px 0px 0px 10px
-  padding: 10px
-  font-size: 24px
-  color: #707D93
-  // background-color: #E2E6ED
+  color: #A5AEBC
 
-.REST_links
+.under-nav
+  width: calc(100% - 2.4vmin)
+  position: relative
+  background-color: #111833
+  padding: 1.2vmin
+  font-size: 2.4vmin
+  line-height: 2.4vmin
+  text-align: center
+  -webkit-box-shadow: 0px 22px 48px -26px rgba(0,0,0,1)
+  -moz-box-shadow: 0px 22px 48px -26px rgba(0,0,0,1)
+  box-shadow: 0px 22px 48px -26px rgba(0,0,0,1)
+
+.info-views 
+  font-family: $R
+  margin: 0 auto
+  cursor: default
+  display: table
+  position: relative
+  color: #A5AEBC
+
+.REST-links
   text-decoration: none
   outline: none
   color: white
-  margin-left: 20px
-  font-size: 24px
+  margin-left: 1.24vw
   font-family: $R
   font-weight: 400
   &:hover 
@@ -199,156 +235,177 @@ $R: 'Roboto', sans-serif
     transition-property: color
     transition-duration: 0.4s, 0.4s
 
-.create_field 
+.create-field 
   font-family: $R
+  font-size: 4.5vmin
   text-decoration: none
   outline: none
-  height: 60px
+  height: 3.6vw
   text-align: center
   color: white
-  -webkit-box-shadow: 21px 21px 0px 5px rgba(25,37,57,1)
-  -moz-box-shadow: 21px 21px 0px 5px rgba(25,37,57,1)
-  box-shadow: 21px 21px 0px 5px rgba(25,37,57,1)
+  -webkit-box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(25,37,57,1)
+  -moz-box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(25,37,57,1)
+  box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(25,37,57,1)
   border: none
-  // border-radius: 70px
   background-color: #3A50A1
   font-weight: 300
-  width: 800px
+  width: 50vw
   margin-top: 10%
-  font-size: 40px
 
-.create_button
+.create-button
   font-family: $R
+  font-size: 4.2vmin
   text-decoration: none
   font-weight: 300
   outline: none
   border: none
   color: white
-  font-size: 34px
   background-color: #3A50A1
-  margin-top: 60px
+  margin-top: 4vw
   position: relative
   text-align: center
 
-.edit_label 
+.edit-table 
+  margin-top: 15%
+  font-size: 1.2vw
   font-family: $R
+
+.edit-label
   color: white
-  font-size: 29px
   padding-left: 50px
   padding-right: 10px
+  font-size: 3.5vmin
 
-tr.tr_edit
+tr.tr-edit
   background-color: #3A50A1
   text-align: right
 
-.edit_field
-  font-family: $R
+.edit-field
+  padding: 10px
   color: white
   background-color: #1A2539
   border: none
   outline: none
   text-decoration: none
-  font-size: 16px
-  padding-top: 10px
-  padding-bottom: 10px
-  padding-left: 10px
-  width: 600px
+  width: 36vw
 
-.editing_button
+.edit-button
   background-color: #1A2539
   color: white
-  font-size: 22px
   border: none
   outline: none
   text-decoration: none
 
-.created_at
+.created-at
   font-family: $R
   color: #707D93
-  font-size: 16px
-  bottom: 2%
+  font-size: 2.2vmin
+  cursor: default
   width: 100%
-  position: absolute
+  text-align: center
+
+.footer 
+  clear: both
+  position: relative
+  bottom: 0
+  text-align: center
 
   /******SIDEBAR******/
 
-.options_search_button
+.options-search-button
   text-decoration: none
-  height: 35px
-  margin: 10px
+  height: 4.5vmin
+  // margin: 1.2vmin
+  margin: 0.2vmin 1.2vmin 1.2vmin
+  z-index: 1
+  position: absolute
+  left: 0
+  // display: inline-block
+  float: left
   cursor: pointer
 
-.sidebar_search
-  position: absolute
-  padding: 20px
-  width: 300px
+.sidebar-search
+  // position: absolute
+  position: fixed
+  padding: 2.4vmin
+  width: 38vmin
+  height: inherit
+  z-index: 10
   text-align: center
   color: white
   left: 0
-  margin-left: 40px
-  border-radius: 10px
+  padding-top: 5%
+  font-size: 2vmin
+  // margin-left: 8vmin
+  // border-radius: 10px
   display: none
-  background-color: #1A2539
+  background-color: #111833
+  // opacity: 0.7
   overflow-x: hidden
 
-.label_search
+.label-search
   font-family: $R
 
-.params_field, .params_field_range, .params_field_search
+.params-field, .params-field-range, .params-field-search
   font-family: $R
   text-align: center
-  // text-decoration: none
   background-color: white
   color: #1A2539
-  // border-radius: 5px
   outline: none
   border: none
 
-.params_field_search
-  margin-right: 10px
-  padding: 3px
+.params-field-search
+  margin-right: 1.2vmin
+  width: 24vmin
+  padding: 0.4vmin
 
-.params_field_range
-  width: 80px
-  margin-left: 5px
+.params-field-range
+  width: 12vmin
+  margin-left: 0.4vmin
 
-.button_search
+.button-search
   color: #1A2539
   outline: none
-  padding: 3px 10px 3px 10px
+  padding: 0.2vw 0.6vw 0.2vw 0.6vw
   background-color: white
   border: none
+
+/****************/
 
 .voice
   position: absolute
   cursor: pointer
-  height: 50px
-  margin-left: -20px
-  margin-top: -170px
+  height: 7.4vmin
+  margin: 0 auto
+  margin-left: -3vmin
+  margin-top: -8.6vmin
   outline: none
 
-.voice_word
+.voice-word
   position: absolute
   cursor: pointer
-  height: 50px
-  margin-left: 20px
-  margin-top: 5px
+  height: 6.2vmin
+  margin-left: 2.2vmin
+  margin-top: 0.6vmin
   outline: none
 
-.words_show
+.words-show
   width: 100%
+  position: relative
   margin: 0 auto
+  top: calc(50% - 10vw) 
+  transform: translateY(-50%)
 
-.back_new_link
+.back-new-link
   text-decoration: none
   color: white
   font-family: $R
-  padding: 15px
+  padding: 1vw
   background-color: #3B467C
-  padding-left: 20px
-  font-size: 22px
+  padding-left: 1.25vw
+  font-size: 3vmin
   border-radius: 0px 40px 40px 0px
   left: 0
   position: absolute
-  margin-top: 60px
-  width: 150px
+  margin-top: 3.8vw
+  width: 9.4vw

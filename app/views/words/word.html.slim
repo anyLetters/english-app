@@ -1,9 +1,10 @@
 div.upper-nav
   = render partial: 'upper_menu', locals: { word: @word }
-span.info_count You know #{@count} words
-= image_tag ('search.png'), class: 'options_search_button', :remote => true
-= render partial: 'form_search'
-.content_word
-  = render partial: 'random_word', locals: { word: @word }
-
-
+div.content
+  = image_tag ('search.png'), class: 'options-search-button', :remote => true
+  div.under-nav
+    span.info-views 
+    span.info-count You know #{@count} words
+  = render partial: 'form_search'
+  div.content-word
+    = render partial: 'random_word', locals: { word: @word }

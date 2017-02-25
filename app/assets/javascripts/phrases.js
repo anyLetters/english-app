@@ -1,8 +1,8 @@
 $(document).ready(function(){
-  $('.phrase_rus').hide();
-  hideRusPhrase = $(".hide_rus_phrase");
+  $('.phrase-rus').hide();
+  hideRusPhrase = $(".hide-rus-phrase");
   hideRusPhrase.on('click', function () {
-    $('.phrase_rus').show();
+    $('.phrase-rus').show();
     $(hideRusPhrase).hide();
   })
 });

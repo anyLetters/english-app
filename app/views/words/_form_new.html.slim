@@ -1,8 +1,8 @@
 = form_for @word do |f|
   br
-  = f.text_field :eng, class: 'create_field', :autofocus=>true
+  = f.text_field :eng, class: 'create-field', :autofocus=>true
   br
-  = f.submit :'NEW', class: 'create_button'
+  = f.submit :'NEW', class: 'create-button'
 
-div.error_msg
+div.error-msg
   = @word.errors.full_messages.first if @word.errors.any?

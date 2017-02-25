@@ -1,10 +1,10 @@
-= link_to 'My words', words_index_path, class: 'REST_links'
-= link_to 'Add word', new_word_path, class: 'REST_links'
-= link_to 'Edit word', edit_word_path(word), class: 'REST_links', id: 'REST_edit'
-= link_to 'More meanings', word_path(word), class: 'REST_links', id: 'REST_show'
+= link_to 'My words', words_index_path, class: 'REST-links'
+= link_to 'Add word', new_word_path, class: 'REST-links'
+= link_to 'Edit word', edit_word_path(word), class: 'REST-links', id: 'REST-edit'
+= link_to 'More meanings', word_path(word), class: 'REST-links', id: 'REST-show'
 = link_to 'Delete word',  word_path(word),
                           method: :delete, 
                           data: { confirm: 'Are you sure?' },
-                          class: 'REST_links'
-= link_to_if words_path, 'To google', 'https://translate.google.ru/#en/ru/' + @word.eng, class: 'to_google', :target => '_blank'
-= link_to 'Go over to phrases', phrases_path, class: 'to_phrases'
+                          class: 'REST-links'
+= link_to_if words_path, 'To google', 'https://translate.google.ru/#en/ru/' + @word.eng, class: 'to-google', :target => '_blank'
+= link_to 'Go over to phrases', phrases_path, class: 'to-phrases'

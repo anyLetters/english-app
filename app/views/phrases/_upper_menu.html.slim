@@ -1,9 +1,9 @@
-= link_to 'All phrases', phrases_index_path, class: 'REST_links'
-= link_to 'Add phrase', new_phrase_path, class: 'REST_links'
-= link_to 'Edit phrase', edit_phrase_path(phrase), class: 'REST_links', id: 'REST_edit'
+= link_to 'All phrases', phrases_index_path, class: 'REST-links'
+= link_to 'Add phrase', new_phrase_path, class: 'REST-links'
+= link_to 'Edit phrase', edit_phrase_path(phrase), class: 'REST-links', id: 'REST-edit'
 = link_to 'Delete phrase',  phrases_path(phrase),
                           method: :delete, 
                           data: { confirm: 'Are you sure?' },
-                          class: 'REST_links'
-= link_to_if phrases_path, 'To google', 'https://translate.google.ru/#en/ru/' + @phrase.phr_eng, class: 'to_google', :target => '_blank'
-= link_to 'Go over to words', words_path, class: 'to_words'
+                          class: 'REST-links'
+= link_to_if phrases_path, 'To google', 'https://translate.google.ru/#en/ru/' + @phrase.phr_eng, class: 'to-google', :target => '_blank'
+= link_to 'Go over to words', words_path, class: 'to-words'

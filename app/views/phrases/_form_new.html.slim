@@ -1,12 +1,12 @@
 = form_for @phrase do |f| 
   br
-  = f.text_field :phr_eng, class: 'create_phrase_eng', :autofocus=>true, placeholder: "Phrase"
+  = f.text_field :phr_eng, class: 'create-phrase-eng', :autofocus=>true, placeholder: "Phrase"
   br
-  = f.text_field :phr_rus, class: 'create_phrase_eng', placeholder: "Translate"
+  = f.text_field :phr_rus, class: 'create-phrase-eng', placeholder: "Translate"
   br
-  = f.text_field :examp, class: 'create_phrase_eng', placeholder: "Example"
+  = f.text_field :examp, class: 'create-phrase-eng', placeholder: "Example"
   br
-  = f.submit :'NEW', class: 'create_button'
+  = f.submit :'NEW', class: 'create-button'
 
-div.error_msg
+div.error-msg
   = @phrase.errors.full_messages.first if @phrase.errors.any?

@@ -1,16 +1,16 @@
-table.show_word_table
+table.show-word-table
   - @translation.each do |key|
-    tr.info_word
-      td.part_of_speech_td #{key[0].capitalize} 
-      td.part_of_speech_translate_td
+    tr.info-word
+      td.part-of-speech-td #{key[0].capitalize} 
+      td.part-of-speech-translate-td
         - key[1].each do |i|
           - if i == key[1].last
             = i
           - else 
             = i + ", "
-    br
+    / br
   tr
-    td.examples_td colspan='2'
+    td.examples-td colspan='2'
       - if @examples.empty?
         p No examples, sorry
       - @examples.each do |i|
