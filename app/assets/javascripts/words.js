@@ -35,9 +35,9 @@ var voiceText = function () {
     var valueElem = document.getElementsByClassName("word-eng")[0].innerHTML;
   }
 
-  if (document.getElementsByClassName("show-word").length > 0) {
-    var valueElem = document.getElementsByClassName("show-word")[0].innerHTML;
-  }
+  // if (document.getElementsByClassName("show-word").length > 0) {
+  //   var valueElem = document.getElementsByClassName("show-word")[0].innerHTML;
+  // }
 
   if (valueElem !== 'undefined' && valueElem !== '') {
     responsiveVoice.speak(valueElem, "US English Male");

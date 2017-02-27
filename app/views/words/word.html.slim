@@ -1,8 +1,8 @@
 div.upper-nav
   = render partial: 'upper_menu', locals: { word: @word }
 div.content
-  = image_tag ('search.png'), class: 'options-search-button', :remote => true
   div.under-nav
+    = image_tag ('search.png'), class: 'options-search-button', :remote => true
     span.info-views 
     span.info-count You know #{@count} words
   = render partial: 'form_search'

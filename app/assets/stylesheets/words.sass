@@ -1,101 +1,148 @@
 // Place all the styles related to the Words controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-// $V: Verdana
-$AB: 'Arial black' 
-$V: Verdana 
-$R: 'Roboto', sans-serif
 
-.show-word
-  font-family: $R
-  font-size: 6.2vmin
-  color: white
-  background-color: #293973
-  padding: 2px 15px 2px 15px
-  font-weight: 300
-  display: inline-block
-  position: relative
-
-.to-google 
-  color: white
-  font-family: $R
+%button-base
   text-decoration: none
-  float: right
-  margin-right: 10px
+  outline: none
+  border: none
 
-.rus-field
-  font-family: $R
-  font-weight: 300
-  color: white
-  padding: 25px
-  margin: 0 auto
-  text-align: center
-  background-color: #2E4089
-  text-decoration: none
-
-.eng-field 
-  font-family: $R
-  font-weight: 300
-  color: white
-  padding: 25px
-  margin: 0 auto
-  text-align: center
-  text-decoration: none
-  border-bottom: 2px solid #E5E9F9
-
-.hide-rus
-  position: absolute
-  background-color: #2E4089
-  height: 47%
+.upper-nav
   width: 100%
-  margin-left: -25px
-  margin-top: -25px
-  cursor: pointer
-
-.content-word
-  margin: auto
-  padding-top: 0
-  width: 100%
-  padding-top: 8vmin
-  top: calc(50% - 2.7vw) 
-  transform: translateY(-50%)
+  line-height: 7.6vmin
+  font-size: 3vmin
+  margin: 0
+  padding: 0
   position: relative
+  display: block
+  background-color: #3A50A1
+  box-shadow: inset 0px 0px 85px -38px rgba(0,0,0,1)
+
+  .REST-links
+    @extend %button-base
+    color: white
+    margin-left: 1.24vw
+    font-weight: 400
+
+    &:hover 
+      color: #CED3E8
+      transition-property: color
+      transition-duration: 0.4s, 0.4s
+    
+    &:nth-last-child(3)
+      background-color: #111833
+      padding: 2vmin
+
+      &:hover
+        transition-property: color
+        transition-duration: 0.4s, 0.4s
+        color: #AA2727
+
+  .to-words, .to-phrases, .to-google
+    @extend %button-base
+    color: white
+    float: right
+    margin-right: 20px
+
+  .to-google 
+    margin-right: 10px
 
 .content
   position: relative
   display: inline-block
   width: 100%
-  text-align: center
-  // margin: 0 auto
   height: calc(100% - 8vmin)
 
-.window-word 
-  background-color: #3A50A1
-  width: 64.5vmin
-  height: auto
-  text-align: center
-  display: block
-  font-size: 5.6vmin
-  margin: auto
-  margin-top: 1%
-  position: relative
-  // -webkit-box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(25,37,57,1)
-  // -moz-box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(25,37,57,1)
-  // box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(25,37,57,1)
-  -webkit-box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(17,24,51,1)
-  -moz-box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(17,24,51,1)
-  box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(17,24,51,1)
+  .under-nav
+    width: calc(100% - 2.4vmin)
+    position: relative
+    background-color: #111833
+    padding: 1.2vmin
+    font-size: 2.4vmin
+    line-height: 2.4vmin
+    text-align: center
+    box-shadow: 0px 22px 48px -26px rgba(0,0,0,1)
 
-.next-word-div
-  text-align: center
-  width: 100vw
-  padding-top: 3.5vw
+    .options-search-button
+      @extend %button-base
+      height: 4.5vmin
+      margin: -0.99vmin 1.1vmin 0vmin
+      z-index: 1
+      position: absolute
+      left: 0
+      float: left
+      cursor: pointer
+
+    .info-count
+      position: relative
+      display: inline-block
+      margin-top: -2.3vmin
+      float: right
+      cursor: default
+      color: #A5AEBC
+
+    .info-views 
+      margin: 0 auto
+      cursor: default
+      display: table
+      position: relative
+      color: #A5AEBC
+
+  .content-word
+    width: 100%
+    padding-top: 8vmin
+    top: calc(50% - 2.7vw) 
+    transform: translateY(-50%)
+    position: relative
+    text-align: center
+
+    .window-word 
+      background-color: #3A50A1
+      width: 64.5vmin
+      height: auto
+      display: block
+      font-size: 5.6vmin
+      margin: auto
+      margin-top: 1%
+      position: relative
+      box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(17,24,51,1)
+
+      .eng-field 
+        font-weight: 300
+        color: white
+        padding: 25px
+        margin: 0 auto
+        border-bottom: 2px solid #E5E9F9
+
+      .rus-field
+        font-weight: 300
+        color: white
+        padding: 25px
+        margin: 0 auto
+        background-color: #2E4089
+
+      .hide-rus
+        position: absolute
+        background-color: #2E4089
+        height: 47%
+        width: 100%
+        margin: -25px 0px 0px -25px
+        cursor: pointer
+
+    .next-word-div
+      width: 100vw
+      padding-top: 3.5vw
+
+      .get-word 
+        @extend %button-base
+        font-size: 7.7vmin
+        text-align: center
+        color: white
 
 .back-link 
-  text-decoration: none
+  @extend %button-base
   background-color: #273246
   color: white
-  font-family: $R
   font-size: 3vmin
   padding: 1vw
   padding-left: 1.25vw
@@ -108,157 +155,124 @@ $R: 'Roboto', sans-serif
   width: 100%
   text-align: center
 
-.part-of-speech-td
-  font-family: $R
-  font-size: 3vmin
-  background-color: #F5F7FD
-  text-align: center
-  color: #3E3D53
-  width: 13vw
-  font-weight: 300
-
-.part-of-speech-translate-td
-  font-family: $R
-  font-size: 2.2vmin
-  padding-right: 0.6vw
-  padding-left: 0.6vw
-  background-color: #293973
-  font-weight: 300
-  color: white
-
-.info-word 
-  height: 2.5vw
-
-.examples-td
-  background-color: #3B467C
-  color: white
-  font-size: 2.4vmin
-  text-align: center
-  height: auto
-  width: auto
-  padding: 0.6vw
-  font-weight: 400
-
-.show-word-table
-  max-width: 80%
-  min-width: 40%
-
-.get-word 
-  font-family: $R
-  text-decoration: none
-  font-size: 7.7vmin
-  text-align: center
-  color: white
-
-.upper-nav
+.content-meanings
   width: 100%
-  line-height: 7.6vmin
-  font-size: 3vmin
-  margin: 0
-  padding: 0
   position: relative
-  display: block
-  background-color: #3A50A1
-  -webkit-box-shadow: inset 0px 0px 85px -38px rgba(0,0,0,1)
-  -moz-box-shadow: inset 0px 0px 85px -38px rgba(0,0,0,1)
-  box-shadow: inset 0px 0px 85px -38px rgba(0,0,0,1)
+  margin: 0 auto
+  top: calc(50% - 10vw) 
+  transform: translateY(-50%)
 
-.index-word-table
-  width: 60vw
-  font-family: $R
-  font-size: 2.8vmin
-  text-align: center
+  p > span
+    font-size: 6.2vmin
+    color: white
+    background-color: #293973
+    padding: 2px 15px 2px 15px
+    font-weight: 300
+    display: inline-block
+    position: relative
 
-.info-word-index
-  color: white
+  p > .voice-word
+    @extend %button-base
+    position: absolute
+    cursor: pointer
+    height: 6.2vmin
+    margin: 0.6vmin 0vw 0vw 2.2vmin
 
-.part-of-speech-td-index
-  background-color: #F5F7FD
+  .show-word-table
+    max-width: 80%
+    min-width: 40%
+    font-weight: 300
+    color: white
+    text-align: center
 
-.part-of-speech-translate-td-index
-  background-color: #293973
-  color: white
-  font-weight: 300
+    tr
+      td.part-of-speech-td
+        font-size: 3vmin
+        background-color: #F5F7FD
+        color: #3E3D53
+        width: 13vw
 
-.scroll-index-word
+      td.part-of-speech-translate-td
+        font-size: 2.2vmin
+        padding: 0vw 0.6vw 0vw
+        background-color: #293973
+        text-align: left
+
+      td.examples-td
+        background-color: #3B467C
+        font-size: 2.4vmin
+        height: auto
+        width: auto
+        padding: 0.6vw
+        font-weight: 400
+
+      &.info-word-tr
+        height: 2.5vw
+
+.index-scroll-word
   height: 78.7%
   overflow-y: scroll
   margin-top: 1%
   margin: 0 auto
   width: 65vw
 
-.index-rest
-  background-color: #3A50A1
-  color: white
-  font-family: $R
-  text-decoration: none
-  outline: none
+  .index-word-table
+    width: 63vw
+    font-size: 2.8vmin
+    text-align: center
 
-.info-count
-  font-family: $R
-  position: relative
-  display: inline-block
-  margin-top: -2.3vmin
-  float: right
-  cursor: default
-  color: #A5AEBC
+    .index-info-word
+      color: #293973
+      cursor: default
 
-.under-nav
-  width: calc(100% - 2.4vmin)
-  position: relative
-  background-color: #111833
-  padding: 1.2vmin
-  font-size: 2.4vmin
-  line-height: 2.4vmin
-  text-align: center
-  -webkit-box-shadow: 0px 22px 48px -26px rgba(0,0,0,1)
-  -moz-box-shadow: 0px 22px 48px -26px rgba(0,0,0,1)
-  box-shadow: 0px 22px 48px -26px rgba(0,0,0,1)
+      .index-part-of-speech-td
+        background-color: #F5F7FD
 
-.info-views 
-  font-family: $R
-  margin: 0 auto
-  cursor: default
-  display: table
-  position: relative
-  color: #A5AEBC
+        &:hover
+          background-color: #293973
+          border: 
+            right: 5px solid white
+            left: 5px solid white
+          color: white
 
-.REST-links
-  text-decoration: none
-  outline: none
-  color: white
-  margin-left: 1.24vw
-  font-family: $R
-  font-weight: 400
-  &:hover 
-    color: #FEC6DE
-    transition-property: color
-    transition-duration: 0.4s, 0.4s
+        &:hover + .index-part-of-speech-translate-td
+          background-color: #3A50A1
+
+      .index-part-of-speech-translate-td
+        background-color: #293973
+        color: white
+        font-weight: 300
+
+        &:hover
+          background-color: #3A50A1
+
+      .index-rest-td
+        background-color: #3A50A1
+        color: white
+        
+        &:last-child
+          background-color: #AA2727
+
+        .index-rest-td-a
+          @extend %button-base
+          color: white
 
 .create-field 
-  font-family: $R
+  @extend %button-base
   font-size: 4.5vmin
-  text-decoration: none
-  outline: none
   height: 3.6vw
   text-align: center
   color: white
-  -webkit-box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(25,37,57,1)
-  -moz-box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(25,37,57,1)
   box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(25,37,57,1)
-  border: none
   background-color: #3A50A1
   font-weight: 300
   width: 50vw
   margin-top: 10%
 
 .create-button
-  font-family: $R
+  @extend %button-base
   font-size: 4.2vmin
-  text-decoration: none
   font-weight: 300
-  outline: none
-  border: none
   color: white
   background-color: #3A50A1
   margin-top: 4vw
@@ -268,7 +282,6 @@ $R: 'Roboto', sans-serif
 .edit-table 
   margin-top: 15%
   font-size: 1.2vw
-  font-family: $R
 
 .edit-label
   color: white
@@ -281,23 +294,18 @@ tr.tr-edit
   text-align: right
 
 .edit-field
+  @extend %button-base
   padding: 10px
   color: white
   background-color: #1A2539
-  border: none
-  outline: none
-  text-decoration: none
   width: 36vw
 
 .edit-button
+  @extend %button-base
   background-color: #1A2539
   color: white
-  border: none
-  outline: none
-  text-decoration: none
 
 .created-at
-  font-family: $R
   color: #707D93
   font-size: 2.2vmin
   cursor: default
@@ -312,20 +320,7 @@ tr.tr-edit
 
   /******SIDEBAR******/
 
-.options-search-button
-  text-decoration: none
-  height: 4.5vmin
-  // margin: 1.2vmin
-  margin: 0.2vmin 1.2vmin 1.2vmin
-  z-index: 1
-  position: absolute
-  left: 0
-  // display: inline-block
-  float: left
-  cursor: pointer
-
 .sidebar-search
-  // position: absolute
   position: fixed
   padding: 2.4vmin
   width: 38vmin
@@ -336,70 +331,40 @@ tr.tr-edit
   left: 0
   padding-top: 5%
   font-size: 2vmin
-  // margin-left: 8vmin
-  // border-radius: 10px
   display: none
   background-color: #111833
-  // opacity: 0.7
   overflow-x: hidden
 
-.label-search
-  font-family: $R
+  .params-field, .params-field-range, .params-field-search, .button-search
+    @extend %button-base
+    text-align: center
+    background-color: white
+    color: #1A2539
 
-.params-field, .params-field-range, .params-field-search
-  font-family: $R
-  text-align: center
-  background-color: white
-  color: #1A2539
-  outline: none
-  border: none
+  .params-field-search
+    margin-right: 1.2vmin
+    width: 24vmin
+    padding: 0.4vmin
 
-.params-field-search
-  margin-right: 1.2vmin
-  width: 24vmin
-  padding: 0.4vmin
+  .params-field-range
+    width: 12vmin
+    margin-left: 0.4vmin
 
-.params-field-range
-  width: 12vmin
-  margin-left: 0.4vmin
-
-.button-search
-  color: #1A2539
-  outline: none
-  padding: 0.2vw 0.6vw 0.2vw 0.6vw
-  background-color: white
-  border: none
+  .button-search
+    padding: 0.2vw 0.6vw 0.2vw 0.6vw
 
 /****************/
 
 .voice
+  @extend %button-base
   position: absolute
   cursor: pointer
   height: 7.4vmin
-  margin: 0 auto
-  margin-left: -3vmin
-  margin-top: -8.6vmin
-  outline: none
-
-.voice-word
-  position: absolute
-  cursor: pointer
-  height: 6.2vmin
-  margin-left: 2.2vmin
-  margin-top: 0.6vmin
-  outline: none
-
-.words-show
-  width: 100%
-  position: relative
-  margin: 0 auto
-  top: calc(50% - 10vw) 
-  transform: translateY(-50%)
+  margin: -8.6vmin 0vw 0vw -3vmin
 
 .back-new-link
-  text-decoration: none
+  @extend %button-base
   color: white
-  font-family: $R
   padding: 1vw
   background-color: #3B467C
   padding-left: 1.25vw
