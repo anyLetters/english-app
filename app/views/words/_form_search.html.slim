@@ -1,7 +1,7 @@
 div.sidebar-search
   = form_tag(words_path, :method => "get", id: "search-form", :remote => true) do
-    = text_field_tag :search, params[:search], placeholder: "Search Posts", class: 'params-field-search'
-    = submit_tag "Search", :name => nil, class: 'button-search'
+    = text_field_tag :search, params[:search], placeholder: "Search", class: 'params-field-search'
+    = submit_tag "Find out", :name => nil, class: 'button-search'
   br
   = form_tag(words_path, :method => "get", id: "words-param-form") do
     = label_tag 'Set range', nil, class: 'label-search'
@@ -21,4 +21,4 @@ div.sidebar-search
     = hidden_field_tag :offset, 0
     br
     br
-    = submit_tag "search", :name => nil, class: 'button-search'
+    = submit_tag "Apply", :name => nil, class: 'button-search'

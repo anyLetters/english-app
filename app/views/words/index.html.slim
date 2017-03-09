@@ -4,9 +4,9 @@ div.upper-nav
 div.index-scroll-word
   table.index-word-table
     - @words.each do |words| 
-      tr.index-info-word
-        td.index-part-of-speech-td #{words.eng}
-        td.index-part-of-speech-translate-td #{words.rus}
+      tr.index-tr
+        td.index-eng #{words.eng}
+        td.index-rus #{words.rus}
         td.index-rest-td = link_to 'More', word_path(words), class: 'index-rest-td-a'
         td.index-rest-td = link_to 'Edit', edit_word_path(words), class: 'index-rest-td-a'
         td.index-rest-td = link_to 'x',  word_path(words),

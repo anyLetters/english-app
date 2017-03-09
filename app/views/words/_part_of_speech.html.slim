@@ -1,15 +1,19 @@
 table.show-word-table
+  tr.show-tr-word
+    td.show-eng onclick='voiceText(this)' #{@word.eng.capitalize}
+    td.show-rus #{@word.rus.mb_chars.capitalize.to_s}
+
   - @translation.each do |key|
-    tr.info-word-tr
-      td.part-of-speech-td #{key[0].capitalize} 
-      td.part-of-speech-translate-td
+    tr.show-tr
+      td.show-part-of-speach-td #{key[0].capitalize} 
+      td.show-translation-td
         - key[1].each do |i|
           - if i == key[1].last
             = i
           - else 
             = i + ", "
-    / br
-  tr
+
+  tr.show-tr
     td.examples-td colspan='2'
       - if @examples.empty?
         p No examples, sorry

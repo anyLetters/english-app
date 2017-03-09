@@ -13,9 +13,7 @@
  *= require_tree .
  *= require_self
  */
-$AB: 'Arial black' 
-$V: Verdana 
-$MENUCOLOR: #2E4FCB
+
 $R: 'Roboto', sans-serif
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700')
@@ -37,7 +35,7 @@ p
   text-align: center
 
 table 
-  font-family: 'Roboto', sans-serif
+  font-family: $R
   font-weight: 400
   margin: 0 auto
   color: #3E3D53
@@ -46,16 +44,13 @@ table
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
   background-color: #F5F5F5
 
-
 .index-scroll-word::-webkit-scrollbar
-  // width: 10px
   width: 1vw
   background-color: #F5F5F5
 
 
 .index-scroll-word::-webkit-scrollbar-thumb
   background-color: #3A50A1
-  // border: 2px solid #555555
 
 .error-msg
   position: absolute
@@ -64,4 +59,3 @@ table
   text-align: center
   color: white
   width: 100%
-  

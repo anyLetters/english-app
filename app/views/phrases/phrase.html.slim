@@ -1,6 +1,7 @@
 div.upper-nav
   = render partial: 'upper_menu', locals: { phrase: @phrase }
-div.under-nav-info
+/ div.under-nav-info
+div.under-nav
   span.info-count You know #{@count} phrases
 .content-word
   = render partial: 'random_phrase', locals: { phrase: @phrase }

@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$upper-nav-color-blue: #3A50A1
+$under-nav-color-dark-blue: #111833
+$R: 'Roboto', sans-serif
+
 %button-base
   text-decoration: none
   outline: none
@@ -11,12 +15,11 @@
   width: 100%
   line-height: 7.6vmin
   font-size: 3vmin
-  margin: 0
-  padding: 0
-  position: relative
-  display: block
-  background-color: #3A50A1
-  box-shadow: inset 0px 0px 85px -38px rgba(0,0,0,1)
+  top: 0
+  left: 0
+  display: inline-block
+  background-color: $upper-nav-color-blue
+  box-shadow: inset 0 0 85px -38px rgba(0,0,0,1)
 
   .REST-links
     @extend %button-base
@@ -30,7 +33,7 @@
       transition-duration: 0.4s, 0.4s
     
     &:nth-last-child(3)
-      background-color: #111833
+      background-color: $under-nav-color-dark-blue
       padding: 2vmin
 
       &:hover
@@ -42,21 +45,19 @@
     @extend %button-base
     color: white
     float: right
-    margin-right: 20px
+    margin-right: 2.48vmin
 
-  .to-google 
-    margin-right: 10px
+  .to-google
+    margin-right: 1.2vmin
 
 .content
-  position: relative
   display: inline-block
   width: 100%
   height: calc(100% - 8vmin)
 
   .under-nav
     width: calc(100% - 2.4vmin)
-    position: relative
-    background-color: #111833
+    background-color: $under-nav-color-dark-blue
     padding: 1.2vmin
     font-size: 2.4vmin
     line-height: 2.4vmin
@@ -66,7 +67,7 @@
     .options-search-button
       @extend %button-base
       height: 4.5vmin
-      margin: -0.99vmin 1.1vmin 0vmin
+      margin: -0.99vmin 1.1vmin 0
       z-index: 1
       position: absolute
       left: 0
@@ -74,7 +75,6 @@
       cursor: pointer
 
     .info-count
-      position: relative
       display: inline-block
       margin-top: -2.3vmin
       float: right
@@ -85,7 +85,6 @@
       margin: 0 auto
       cursor: default
       display: table
-      position: relative
       color: #A5AEBC
 
   .content-word
@@ -97,7 +96,7 @@
     text-align: center
 
     .window-word 
-      background-color: #3A50A1
+      background-color: $upper-nav-color-blue
       width: 64.5vmin
       height: auto
       display: block
@@ -105,7 +104,7 @@
       margin: auto
       margin-top: 1%
       position: relative
-      box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(17,24,51,1)
+      box-shadow: 2.8vmin 2.8vmin 0 0.2vmin rgba(17,24,51,1)
 
       .eng-field 
         font-weight: 300
@@ -126,11 +125,11 @@
         background-color: #2E4089
         height: 47%
         width: 100%
-        margin: -25px 0px 0px -25px
+        margin: -25px 0 0 -25px
         cursor: pointer
 
     .next-word-div
-      width: 100vw
+      width: 100%
       padding-top: 3.5vw
 
       .get-word 
@@ -141,12 +140,12 @@
 
 .back-link 
   @extend %button-base
-  background-color: #273246
+  background-color: $under-nav-color-dark-blue
   color: white
   font-size: 3vmin
   padding: 1vw
   padding-left: 1.25vw
-  border-radius: 0px 0px 40px 0px
+  border-radius: 0 0 2.8vw 0
   display: inline-block
   width: 9.4vw
 
@@ -157,26 +156,10 @@
 
 .content-meanings
   width: 100%
-  position: relative
+  position: absolute
   margin: 0 auto
-  top: calc(50% - 10vw) 
+  top: 50%
   transform: translateY(-50%)
-
-  p > span
-    font-size: 6.2vmin
-    color: white
-    background-color: #293973
-    padding: 2px 15px 2px 15px
-    font-weight: 300
-    display: inline-block
-    position: relative
-
-  p > .voice-word
-    @extend %button-base
-    position: absolute
-    cursor: pointer
-    height: 6.2vmin
-    margin: 0.6vmin 0vw 0vw 2.2vmin
 
   .show-word-table
     max-width: 80%
@@ -184,30 +167,46 @@
     font-weight: 300
     color: white
     text-align: center
+    
+    tr.show-tr-word
 
-    tr
-      td.part-of-speech-td
+      td.show-eng, td.show-rus
+        font-size: 4vmin
+        color: white
+        text-align: left
+        font-weight: 300
+        padding:
+          top: 1vw
+          bottom: 1vw
+          left: 0.6vw
+        
+        &.show-eng
+          text-align: center
+          cursor: pointer
+          padding: 
+            left: 2vw
+            right: 2vw
+
+    tr.show-tr
+      height: 5vmin
+
+      td.show-part-of-speach-td
         font-size: 3vmin
         background-color: #F5F7FD
         color: #3E3D53
         width: 13vw
 
-      td.part-of-speech-translate-td
+      td.show-translation-td
         font-size: 2.2vmin
-        padding: 0vw 0.6vw 0vw
+        padding: 0 0.6vw 0
         background-color: #293973
         text-align: left
 
       td.examples-td
         background-color: #3B467C
         font-size: 2.4vmin
-        height: auto
-        width: auto
         padding: 0.6vw
         font-weight: 400
-
-      &.info-word-tr
-        height: 2.5vw
 
 .index-scroll-word
   height: 78.7%
@@ -221,11 +220,11 @@
     font-size: 2.8vmin
     text-align: center
 
-    .index-info-word
+    .index-tr
       color: #293973
       cursor: default
 
-      .index-part-of-speech-td
+      .index-eng
         background-color: #F5F7FD
 
         &:hover
@@ -235,19 +234,19 @@
             left: 5px solid white
           color: white
 
-        &:hover + .index-part-of-speech-translate-td
-          background-color: #3A50A1
+        &:hover + .index-rus
+          background-color: $upper-nav-color-blue
 
-      .index-part-of-speech-translate-td
+      .index-rus
         background-color: #293973
         color: white
         font-weight: 300
 
         &:hover
-          background-color: #3A50A1
+          background-color: $upper-nav-color-blue
 
       .index-rest-td
-        background-color: #3A50A1
+        background-color: $upper-nav-color-blue
         color: white
         
         &:last-child
@@ -260,21 +259,24 @@
 .create-field 
   @extend %button-base
   font-size: 4.5vmin
+  font-family: $R
   height: 3.6vw
   text-align: center
   color: white
-  box-shadow: 2.8vmin 2.8vmin 0vmin 0.2vmin rgba(25,37,57,1)
-  background-color: #3A50A1
+  box-shadow: 2.8vmin 2.8vmin 0 0.2vmin rgba(17,24,51,1)
+  background-color: $upper-nav-color-blue
   font-weight: 300
   width: 50vw
   margin-top: 10%
 
 .create-button
   @extend %button-base
-  font-size: 4.2vmin
+  font-size: 4vmin
   font-weight: 300
+  font-family: $R
   color: white
-  background-color: #3A50A1
+  cursor: pointer
+  background-color: $upper-nav-color-blue
   margin-top: 4vw
   position: relative
   text-align: center
@@ -290,7 +292,7 @@
   font-size: 3.5vmin
 
 tr.tr-edit
-  background-color: #3A50A1
+  background-color: $upper-nav-color-blue
   text-align: right
 
 .edit-field
@@ -332,7 +334,7 @@ tr.tr-edit
   padding-top: 5%
   font-size: 2vmin
   display: none
-  background-color: #111833
+  background-color: $under-nav-color-dark-blue
   overflow-x: hidden
 
   .params-field, .params-field-range, .params-field-search, .button-search
@@ -360,7 +362,7 @@ tr.tr-edit
   position: absolute
   cursor: pointer
   height: 7.4vmin
-  margin: -8.6vmin 0vw 0vw -3vmin
+  margin: -8.6vmin 0 0 -3vmin
 
 .back-new-link
   @extend %button-base
@@ -369,7 +371,7 @@ tr.tr-edit
   background-color: #3B467C
   padding-left: 1.25vw
   font-size: 3vmin
-  border-radius: 0px 40px 40px 0px
+  border-radius: 0 2.8vw 2.8vw 0
   left: 0
   position: absolute
   margin-top: 3.8vw

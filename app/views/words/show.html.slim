@@ -3,11 +3,5 @@ div.upper-nav
 = link_to 'Back', words_path, class: 'back-link'
 = link_to 'New word', new_word_path, class: 'back-new-link'
 div.content-meanings
-  p
-    span.word-eng #{@word.eng.capitalize}
-    = image_submit_tag ("volume.png"), class: 'voice-word', onclick: 'voiceText()'
-  p
-    span #{@word.rus.mb_chars.capitalize.to_s}
-  br
   = render partial: 'part_of_speech'
 
