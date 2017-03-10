@@ -1,24 +1,23 @@
-div.sidebar-search
-  = form_tag(words_path, :method => "get", id: "search-form", :remote => true) do
-    = text_field_tag :search, params[:search], placeholder: "Search", class: 'params-field-search'
-    = submit_tag "Find out", :name => nil, class: 'button-search'
-  br
-  = form_tag(words_path, :method => "get", id: "words-param-form") do
-    = label_tag 'Set range', nil, class: 'label-search'
-    br
-    = text_field_tag :id_from, params[:id_from], placeholder: "from", class: 'params-field-range'
-    = text_field_tag :id_to, params[:id_to], placeholder: "to", class: 'params-field-range'
-    br
-    br
-    = label_tag 'Take some recent words', nil, class: 'label-search'
-    br
-    = text_field_tag :end_ids, params[:end_ids], placeholder: "amount of words", class: 'params-field'
-    br
-    br
-    = label_tag 'Starting with letter(s)', nil, class: 'label-search'
-    br
-    = text_field_tag :first_letter, params[:first_letter], placeholder: "a, b, c", class: 'params-field'
-    = hidden_field_tag :offset, 0
-    br
-    br
-    = submit_tag "Apply", :name => nil, class: 'button-search'
+div.sidebar-content
+  div.sidebar-search
+    = form_tag(words_path, :method => "get", id: "search-form", :remote => true) do
+      p = text_field_tag :search, params[:search], placeholder: "Word", class: 'params-field-search'
+      p = submit_tag "Search", :name => nil, class: 'button-search'
+  div.sidebar-params 
+    = form_tag(words_path, :method => "get", id: "words-param-form") do
+      p.label-f
+        = label_tag 'Set range', nil, class: 'label-search'
+      p.range-f
+        = text_field_tag :id_from, params[:id_from], placeholder: "1", class: 'params-field-range'
+        = text_field_tag :id_to, params[:id_to], placeholder: "100", class: 'params-field-range'
+      p.label-f
+        = label_tag 'Take recent words', nil, class: 'label-search'
+      p.recent-f
+        = text_field_tag :end_ids, params[:end_ids], placeholder: "100", class: 'params-field'
+      p.label-f
+        = label_tag 'Starting with', nil, class: 'label-search'
+      p.letters-f
+        = text_field_tag :first_letter, params[:first_letter], placeholder: "a, b, c", class: 'params-field'
+        = hidden_field_tag :offset, 0
+      p.apply-b = submit_tag "Apply", :name => nil, class: 'button-search'
+    = link_to 'Reset', words_path, class: 'button-search'

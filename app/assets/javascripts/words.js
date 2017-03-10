@@ -3,10 +3,10 @@ $(document).ready(function(){
   hideRus.on('click', function () {
     $(hideRus).fadeOut(350);
   });
-  sidebar = $('.sidebar-search');
+  sidebar = $('.sidebar-content');
   toggle_button = $('.options-search-button');
   toggle_button.click(function() {
-    sidebar.slideToggle();
+    sidebar.fadeToggle('default','swing');
   });
 });
 

@@ -4,6 +4,7 @@
 
 $upper-nav-color-blue: #3A50A1
 $under-nav-color-dark-blue: #111833
+$white: #F5F7FD
 $R: 'Roboto', sans-serif
 
 %button-base
@@ -34,7 +35,10 @@ $R: 'Roboto', sans-serif
     
     &:nth-last-child(3)
       background-color: $under-nav-color-dark-blue
-      padding: 2vmin
+      padding: 
+        left: 2vmin
+        right: 2vmin
+      display: inline-block
 
       &:hover
         transition-property: color
@@ -137,6 +141,14 @@ $R: 'Roboto', sans-serif
         font-size: 7.7vmin
         text-align: center
         color: white
+
+    .footer 
+      .created-at
+        color: #707D93
+        font-size: 2.2vmin
+        cursor: default
+        width: 100%
+        text-align: center
 
 .back-link 
   @extend %button-base
@@ -285,75 +297,142 @@ $R: 'Roboto', sans-serif
   margin-top: 15%
   font-size: 1.2vw
 
-.edit-label
-  color: white
-  padding-left: 50px
-  padding-right: 10px
-  font-size: 3.5vmin
+  .edit-label
+    color: white
+    padding-left: 50px
+    padding-right: 10px
+    font-size: 3.5vmin
 
-tr.tr-edit
-  background-color: $upper-nav-color-blue
-  text-align: right
+  tr.tr-edit
+    background-color: $upper-nav-color-blue
+    text-align: right
 
-.edit-field
-  @extend %button-base
-  padding: 10px
-  color: white
-  background-color: #1A2539
-  width: 36vw
+  .tr-edit > td > .edit-field
+    @extend %button-base
+    padding: 10px
+    color: white
+    background-color: #1A2539
+    width: 36vw
 
-.edit-button
-  @extend %button-base
-  background-color: #1A2539
-  color: white
-
-.created-at
-  color: #707D93
-  font-size: 2.2vmin
-  cursor: default
-  width: 100%
-  text-align: center
-
-.footer 
-  clear: both
-  position: relative
-  bottom: 0
-  text-align: center
+  tr > td > .edit-button
+    @extend %button-base
+    background-color: #1A2539
+    color: white
 
   /******SIDEBAR******/
 
-.sidebar-search
+.sidebar-content
   position: fixed
-  padding: 2.4vmin
   width: 38vmin
   height: inherit
   z-index: 10
   text-align: center
   color: white
   left: 0
-  padding-top: 5%
   font-size: 2vmin
   display: none
   background-color: $under-nav-color-dark-blue
   overflow-x: hidden
+  overflow-y: hidden
 
-  .params-field, .params-field-range, .params-field-search, .button-search
-    @extend %button-base
-    text-align: center
-    background-color: white
-    color: #1A2539
+  .sidebar-search
+    margin-bottom: 2vw
 
-  .params-field-search
-    margin-right: 1.2vmin
-    width: 24vmin
-    padding: 0.4vmin
+    p
+      padding: 0
+      margin: 0 auto
+      margin-top: 4vw
+      width: 80%
 
-  .params-field-range
-    width: 12vmin
-    margin-left: 0.4vmin
+      &:last-child
+        margin: 0 auto
 
-  .button-search
-    padding: 0.2vw 0.6vw 0.2vw 0.6vw
+      .params-field-search
+        width: 100%
+        margin: 0
+        padding: 0
+        height: 2vw
+        border-radius: 0.3vw
+        background-color: $white
+
+        &:focus
+          box-shadow: 0.8vmin 0.8vmin 0 0.2vmin rgba(58,80,161,1)
+          transition-property: box-shadow
+          transition-duration: 0.4s, 0.4s
+
+      .button-search
+        margin-top: 0.5vw
+        cursor: pointer
+        color: white
+        background: none
+        font-size: 1.5vw
+        font-weight: 300
+
+  .sidebar-params
+    height: 100%
+
+    &:last-of-type > a
+      font-size: 1.5vw
+
+    .label-f
+      color: white
+      font-size: 3.5vmin
+      font-weight: 300
+      margin: 0.5vw
+      padding: 0
+      margin-top: 2vw
+
+    .range-f
+      padding: 0
+      margin: 0 auto
+
+      .params-field-range
+        @extend %button-base
+        text-align: center
+        height: 2vw
+        display: block
+        background-color: $white
+        margin: 0 auto
+        width: 50%
+
+        &:first-of-type
+          border: 
+            top-left-radius: 0.3vw
+            top-right-radius: 0.3vw
+          border-bottom: 2px solid #212D5C
+
+        &:last-of-type
+          border: 
+            bottom-left-radius: 0.3vw
+            bottom-right-radius: 0.3vw
+
+    .button-search
+      margin-top: 2vw
+      width: 50%
+      font-size: 2.5vw
+      border-radius: 0.3vw
+      background: none
+      cursor: pointer
+      color: white
+      font-weight: 300
+
+.params-field, .params-field-search, .button-search
+  @extend %button-base
+  text-align: center
+  font-family: $R
+    
+.range-f, .recent-f, .letters-f
+  padding: 0
+  margin: 0 auto
+
+.params-field
+  border-radius: 0.3vw
+  height: 2vw
+  background-color: $white
+  &:focus
+    box-shadow: 0.8vmin 0.8vmin 0 0.2vmin rgba(58,80,161,1)
+    transition-property: box-shadow
+    transition-duration: 0.4s, 0.4s
 
 /****************/
 
