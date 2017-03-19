@@ -1,7 +1,3 @@
-// Place all the styles related to the Words controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 $upper-nav-color-blue: #3A50A1
 $under-nav-color-dark-blue: #111833
 $white: #F5F7FD
@@ -18,13 +14,13 @@ $R: 'Roboto', sans-serif
   font-size: 3vmin
   top: 0
   left: 0
+  min-height: 20px
   display: inline-block
   background-color: $upper-nav-color-blue
-  box-shadow: inset 0 0 85px -38px rgba(0,0,0,1)
 
   .REST-links
     @extend %button-base
-    color: white
+    color: $white
     margin-left: 1.24vw
     font-weight: 400
 
@@ -47,16 +43,19 @@ $R: 'Roboto', sans-serif
 
   .to-words, .to-phrases, .to-google
     @extend %button-base
-    color: white
+    color: $white
     float: right
     margin-right: 2.48vmin
 
   .to-google
     margin-right: 1.2vmin
+    height: 6vmin
+    padding-top: 0.7vmin
 
 .content
   display: inline-block
   width: 100%
+  min-height: 180px
   height: calc(100% - 8vmin)
 
   .under-nav
@@ -66,7 +65,7 @@ $R: 'Roboto', sans-serif
     font-size: 2.4vmin
     line-height: 2.4vmin
     text-align: center
-    box-shadow: 0px 22px 48px -26px rgba(0,0,0,1)
+    box-shadow: 0 22px 48px -26px rgba(0,0,0,1)
 
     .options-search-button
       @extend %button-base
@@ -93,7 +92,7 @@ $R: 'Roboto', sans-serif
 
   .content-word
     width: 100%
-    padding-top: 8vmin
+    padding-top: 9vmin
     top: calc(50% - 2.7vw) 
     transform: translateY(-50%)
     position: relative
@@ -102,7 +101,6 @@ $R: 'Roboto', sans-serif
     .window-word 
       background-color: $upper-nav-color-blue
       width: 64.5vmin
-      height: auto
       display: block
       font-size: 5.6vmin
       margin: auto
@@ -112,24 +110,23 @@ $R: 'Roboto', sans-serif
 
       .eng-field 
         font-weight: 300
-        color: white
-        padding: 25px
+        color: $white
+        padding: 3.2vh
         margin: 0 auto
-        border-bottom: 2px solid #E5E9F9
+        border-bottom: 0.3vh solid $under-nav-color-dark-blue
 
       .rus-field
         font-weight: 300
-        color: white
-        padding: 25px
+        color: $white
+        padding: 3.2vh
         margin: 0 auto
         background-color: #2E4089
 
       .hide-rus
         position: absolute
         background-color: #2E4089
-        height: 47%
         width: 100%
-        margin: -25px 0 0 -25px
+        margin: -3.2vh 0 0 -3.2vh
         cursor: pointer
 
     .next-word-div
@@ -140,7 +137,7 @@ $R: 'Roboto', sans-serif
         @extend %button-base
         font-size: 7.7vmin
         text-align: center
-        color: white
+        color: $white
 
     .footer 
       .created-at
@@ -150,123 +147,154 @@ $R: 'Roboto', sans-serif
         width: 100%
         text-align: center
 
-.back-link 
-  @extend %button-base
-  background-color: $under-nav-color-dark-blue
-  color: white
-  font-size: 3vmin
-  padding: 1vw
-  padding-left: 1.25vw
-  border-radius: 0 0 2.8vw 0
-  display: inline-block
-  width: 9.4vw
-
 .content-new
-  padding-top: 7vw
   width: 100%
   text-align: center
+  top: 50%
+  position: absolute
+  transform: translateY(-50%)
 
 .content-meanings
   width: 100%
-  position: absolute
   margin: 0 auto
-  top: 50%
-  transform: translateY(-50%)
+  height: 100%
 
-  .show-word-table
-    max-width: 80%
-    min-width: 40%
-    font-weight: 300
-    color: white
-    text-align: center
-    
-    tr.show-tr-word
+  .show-content
+    top: 50%
+    transform: translateY(-50%)
+    width: 100%
+    max-height: 70%
+    margin: 2% auto
+    position: absolute
 
-      td.show-eng, td.show-rus
-        font-size: 4vmin
-        color: white
-        text-align: left
+    .show-word-table
+      max-width: 80%
+      min-width: 40%
+      font-weight: 300
+      margin: 0 auto
+      color: $white
+      text-align: center
+      border-collapse: collapse
+      
+      tr.show-tr-word
+        td.show-eng, td.show-rus
+          font-size: 4.7vmin
+          color: $white
+          text-align: left
+          padding:
+            top: 1vw
+            bottom: 1vw
+            left: 1vw
+          
+          &.show-eng
+            text-align: center
+            cursor: pointer
+            padding: 
+              left: 2vw
+              right: 2vw
+
+      tr.show-tr
+        height: 10vmin
+        padding: 0
+        margin: 0
         font-weight: 300
-        padding:
-          top: 1vw
-          bottom: 1vw
-          left: 0.6vw
-        
-        &.show-eng
-          text-align: center
-          cursor: pointer
-          padding: 
-            left: 2vw
-            right: 2vw
+        box-shadow: 0 0 3vh -1vh #111833
 
-    tr.show-tr
-      height: 5vmin
+        border-bottom: 1px solid #212D5C
 
-      td.show-part-of-speach-td
-        font-size: 3vmin
-        background-color: #F5F7FD
-        color: #3E3D53
-        width: 13vw
+        &:nth-last-child(1)
+          border: none
+        &:nth-last-child(2)
+          border: none
 
-      td.show-translation-td
-        font-size: 2.2vmin
-        padding: 0 0.6vw 0
-        background-color: #293973
-        text-align: left
+        td.show-part-of-speach-td
+          font-size: 4.7vmin
+          background-color: #F5F7FD
+          color: #3E3D53
+          padding: 0 1vw
+          margin: 0
+          width: 13vw
 
-      td.examples-td
-        background-color: #3B467C
-        font-size: 2.4vmin
-        padding: 0.6vw
-        font-weight: 400
+        td.show-translation-td
+          font-size: 3vmin
+          margin: 0
+          padding: 1vw
+          background-color: #293973
+          text-align: left
+
+        td.examples-td
+          background-color: #3B467C
+          font-size: 2.4vmin
+          padding: 1vw
 
 .index-scroll-word
-  height: 78.7%
+  height: calc(100% - 12.34%)
   overflow-y: scroll
-  margin-top: 1%
   margin: 0 auto
-  width: 65vw
+  width: 100vw
 
   .index-word-table
-    width: 63vw
-    font-size: 2.8vmin
+    width: 100%
+    border-collapse: collapse
     text-align: center
 
+    tbody > tr:nth-child(odd)
+      background-color: #18244D
+
     .index-tr
-      color: #293973
+      color: $white
+      font-size: 2.8vmin
+      width: 100%
       cursor: default
 
+      &:hover
+        background-color: #111833
+
       .index-eng
-        background-color: #F5F7FD
-
-        &:hover
-          background-color: #293973
-          border: 
-            right: 5px solid white
-            left: 5px solid white
-          color: white
-
-        &:hover + .index-rus
-          background-color: $upper-nav-color-blue
+        width: 50%
+        text-align: right
+        color: #F5F7FD
 
       .index-rus
-        background-color: #293973
-        color: white
-        font-weight: 300
-
-        &:hover
-          background-color: $upper-nav-color-blue
+        color: #F5F7FD
+        text-align: left
 
       .index-rest-td
-        background-color: $upper-nav-color-blue
-        color: white
+        color: $white
         
         &:last-child
-          background-color: #AA2727
+          background-color: #111833
 
         .index-rest-td-a
           @extend %button-base
-          color: white
+          color: $white
+
+.sc
+  color: $white
+  margin-left: 2vw
+  font-size: 2.8vmin
+
+.scrolls
+  @extend %button-base
+  background: transparent
+  color: $white
+  margin: 0 auto
+  font-size: 2.8vmin
+  cursor: pointer
+  &:last-child
+    padding: 0
+
+.scroll-id
+  border: none
+  background-color: transparent
+  color: $white
+  text-align: center
+  width: 4vw
+  margin:
+    left: 2vw
+    right: 2vw
+  font-size: 2.8vmin
+  outline: none
 
 .create-field 
   @extend %button-base
@@ -274,50 +302,53 @@ $R: 'Roboto', sans-serif
   font-family: $R
   height: 3.6vw
   text-align: center
-  color: white
+  color: $white
   box-shadow: 2.8vmin 2.8vmin 0 0.2vmin rgba(17,24,51,1)
   background-color: $upper-nav-color-blue
   font-weight: 300
   width: 50vw
-  margin-top: 10%
+  margin-top: 7%
 
 .create-button
   @extend %button-base
   font-size: 4vmin
   font-weight: 300
   font-family: $R
-  color: white
+  color: $white
   cursor: pointer
   background-color: $upper-nav-color-blue
-  margin-top: 4vw
+  margin-top: 4vh
   position: relative
   text-align: center
 
 .edit-table 
   margin-top: 15%
-  font-size: 1.2vw
+  font-size: 2.5vh
 
   .edit-label
-    color: white
-    padding-left: 50px
-    padding-right: 10px
+    color: $white
+    padding:
+      left: 5vw
+      right: 0.7vw
     font-size: 3.5vmin
 
   tr.tr-edit
     background-color: $upper-nav-color-blue
     text-align: right
+    margin: 0
+    padding: 0
 
   .tr-edit > td > .edit-field
     @extend %button-base
-    padding: 10px
-    color: white
-    background-color: #1A2539
+    padding: 2vh
+    color: $white
+    background-color: #111833
     width: 36vw
 
   tr > td > .edit-button
     @extend %button-base
-    background-color: #1A2539
-    color: white
+    background-color: #111833
+    color: $white
 
   /******SIDEBAR******/
 
@@ -327,7 +358,7 @@ $R: 'Roboto', sans-serif
   height: inherit
   z-index: 10
   text-align: center
-  color: white
+  color: $white
   left: 0
   font-size: 2vmin
   display: none
@@ -354,16 +385,19 @@ $R: 'Roboto', sans-serif
         height: 2vw
         border-radius: 0.3vw
         background-color: $white
+        box-sizing: border-box
 
         &:focus
-          box-shadow: 0.8vmin 0.8vmin 0 0.2vmin rgba(58,80,161,1)
-          transition-property: box-shadow
-          transition-duration: 0.4s, 0.4s
+          border:
+            left: 0.5vw solid $upper-nav-color-blue
+            right: 0.5vw solid $upper-nav-color-blue
+          transition-property: border
+          transition-duration: 0.2s, 0.2s
 
       .button-search
         margin-top: 0.5vw
         cursor: pointer
-        color: white
+        color: $white
         background: none
         font-size: 1.5vw
         font-weight: 300
@@ -375,14 +409,14 @@ $R: 'Roboto', sans-serif
       font-size: 1.5vw
 
     .label-f
-      color: white
+      color: $white
       font-size: 3.5vmin
       font-weight: 300
       margin: 0.5vw
       padding: 0
       margin-top: 2vw
 
-    .range-f
+    .range-f, .recent-f, .letters-f
       padding: 0
       margin: 0 auto
 
@@ -394,6 +428,14 @@ $R: 'Roboto', sans-serif
         background-color: $white
         margin: 0 auto
         width: 50%
+        box-sizing: border-box
+
+        &:focus
+          border:
+            left: 0.5vw solid $upper-nav-color-blue
+            right: 0.5vw solid $upper-nav-color-blue
+          transition-property: border
+          transition-duration: 0.2s, 0.2s
 
         &:first-of-type
           border: 
@@ -406,6 +448,20 @@ $R: 'Roboto', sans-serif
             bottom-left-radius: 0.3vw
             bottom-right-radius: 0.3vw
 
+      .params-field
+        border-radius: 0.3vw
+        height: 2vw
+        width: 65%
+        background-color: $white
+        box-sizing: border-box
+
+        &:focus
+          border:
+            left: 0.5vw solid $upper-nav-color-blue
+            right: 0.5vw solid $upper-nav-color-blue
+          transition-property: border
+          transition-duration: 0.2s, 0.2s
+
     .button-search
       margin-top: 2vw
       width: 50%
@@ -413,26 +469,13 @@ $R: 'Roboto', sans-serif
       border-radius: 0.3vw
       background: none
       cursor: pointer
-      color: white
+      color: $white
       font-weight: 300
 
 .params-field, .params-field-search, .button-search
   @extend %button-base
   text-align: center
   font-family: $R
-    
-.range-f, .recent-f, .letters-f
-  padding: 0
-  margin: 0 auto
-
-.params-field
-  border-radius: 0.3vw
-  height: 2vw
-  background-color: $white
-  &:focus
-    box-shadow: 0.8vmin 0.8vmin 0 0.2vmin rgba(58,80,161,1)
-    transition-property: box-shadow
-    transition-duration: 0.4s, 0.4s
 
 /****************/
 
@@ -443,15 +486,29 @@ $R: 'Roboto', sans-serif
   height: 7.4vmin
   margin: -8.6vmin 0 0 -3vmin
 
-.back-new-link
-  @extend %button-base
-  color: white
-  padding: 1vw
-  background-color: #3B467C
-  padding-left: 1.25vw
-  font-size: 3vmin
-  border-radius: 0 2.8vw 2.8vw 0
-  left: 0
-  position: absolute
-  margin-top: 3.8vw
-  width: 9.4vw
+.under-nav
+  width: 100%
+  background-color: $under-nav-color-dark-blue
+  font-size: 2.4vmin
+  line-height: 2.4vmin
+  box-shadow: 0px 22px 48px -26px rgba(0,0,0,1)
+  
+  .back-new-link
+    @extend %button-base
+    color: $white
+    font-size: 3vmin
+    border-radius: 0 2.8vw 2.8vw 0
+    display: inline-block
+    margin: 
+      left: 3vmin
+      right: 3vmin
+
+  .back-link 
+    @extend %button-base
+    color: $white
+    font-size: 3vmin
+    margin-left: 2.4vmin
+    padding: 
+      top: 1.2vmin
+      bottom: 1.2vmin
+    display: inline-block

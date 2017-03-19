@@ -1,10 +1,24 @@
-= link_to 'My words', words_index_path, class: 'REST-links'
-= link_to 'Add word', new_word_path, class: 'REST-links'
-= link_to 'Edit word', edit_word_path(word), class: 'REST-links', id: 'REST-edit'
-= link_to 'More meanings', word_path(word), class: 'REST-links', id: 'REST-show'
-= link_to 'x',  word_path(word),
+/ = link_to 'LIST', words_index_path, class: 'REST-links'
+/ = link_to 'ADD', new_word_path, class: 'REST-links'
+/ = link_to 'EDIT', edit_word_path(word), class: 'REST-links', id: 'REST-edit'
+/ = link_to 'MORE', word_path(word), class: 'REST-links', id: 'REST-show'
+/ = link_to 'X',  word_path(word),
+/                             method: :delete, 
+/                             data: { confirm: 'Are you sure?' },
+/                             class: 'REST-links'
+/ = link_to image_tag('google.png', class: 'to-google'), 'https://translate.google.ru/#en/ru/' + @word.eng, :target => '_blank'
+/ = link_to 'PHRASES', phrases_path, class: 'to-phrases'
+
+//delete it if I will want to return back lol
+= link_to 'LIST', 'http://localhost:3000/words/index', class: 'REST-links', :target => '_blank'
+= link_to 'ADD', 'http://localhost:3000/words/new', class: 'REST-links', :target => '_blank'
+= link_to 'EDIT', 'http://localhost:3000/words/?/edit', class: 'REST-links', id: 'REST-edit', :target => '_blank'
+= link_to 'MORE', 'http://localhost:3000/words/?', class: 'REST-links', id: 'REST-show', :target => '_blank'
+= link_to 'X',  'http://localhost:3000/words/?',
                             method: :delete, 
                             data: { confirm: 'Are you sure?' },
-                            class: 'REST-links'
-= link_to_if words_path, 'To google', 'https://translate.google.ru/#en/ru/' + @word.eng, class: 'to-google', :target => '_blank'
-= link_to 'Go over to phrases', phrases_path, class: 'to-phrases'
+                            class: 'REST-links',
+                            id: 'REST-delete'
+= link_to image_tag('google.png', class: 'to-google'), 'https://translate.google.ru/#en/ru/', :target => '_blank'
+= link_to 'PHRASES', phrases_path, class: 'to-phrases'
+//end

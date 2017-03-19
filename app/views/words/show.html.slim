@@ -1,7 +1,8 @@
 div.upper-nav 
-  span.REST-links Word
-= link_to 'Back', words_path, class: 'back-link'
-= link_to 'New word', new_word_path, class: 'back-new-link'
+  span.REST-links MORE
+div.under-nav
+  = link_to 'BACK', words_path, class: 'back-link'
+  = link_to 'NEW WORD', new_word_path, class: 'back-new-link'
 div.content-meanings
   = render partial: 'part_of_speech'
 

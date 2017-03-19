@@ -1,11 +1,12 @@
 div.window-word  
   = image_submit_tag ("volume.png"), class: 'voice', onclick: 'voiceText()'
   div.eng-field
-    span.word-eng #{word.eng} 
+    span.word-eng
   div.rus-field
     div.hide-rus
-    span.word-rus #{word.rus}
+    span.word-rus 
 div.next-word-div
-  = link_to "Next", words_path(:id_from => params[:id_from], :id_to => params[:id_to], :first_letter => params[:first_letter], :end_ids => params[:end_ids], :offset => params[:offset].to_i + 1), :remote => true, class: 'get-word', :onclick => 'countWatchedWords()'
+  = link_to "Next", words_path(:id_from => params[:id_from], :id_to => params[:id_to], :first_letter => params[:first_letter], :end_ids => params[:end_ids], :offset => params[:offset].to_i + 1), :remote => true, class: 'get-word', :onclick => 'countWatchedWords(), setMethod()'
 div.footer
-  span.created-at This word was added at #{@date[1]} #{@date[0]}
+  //span.created-at This word was added at #{@date[1]} #{@date[0]}
+  span.created-at

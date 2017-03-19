@@ -1,15 +1,22 @@
 div.upper-nav 
-  span.REST-links My words
-= link_to 'Back', words_path, class: 'back-link'
+  span.REST-links LIST
+div.under-nav
+  = link_to 'BACK', words_path, class: 'back-link'
+  span.sc SCROLL TO: 
+  = tag "input", { "type" => "button", "value" => "END", "onclick" => "scrollTableEvent.smoothToBottom()", 'class' => 'scrolls'} 
+  = tag "input", { "type" => "button", "value" => "TOP", "onclick" => "scrollTableEvent.smoothToTop()", 'class' => 'scrolls'}
+  span.sc OR
+  = tag "input", { "type" => "text", 'class' => 'scroll-id', 'placeholder' => 'ID', 'id' => 'scroll-id'}
+  = tag "input", { "type" => "button", "value" => "GO", "onclick" => "scrollTableEvent.smoothToId(document.getElementById('scroll-id').value)", 'class' => 'scrolls'}
 div.index-scroll-word
-  table.index-word-table
+  table.index-word-table cellpadding="15"
     - @words.each do |words| 
-      tr.index-tr
-        td.index-eng #{words.eng}
-        td.index-rus #{words.rus}
-        td.index-rest-td = link_to 'More', word_path(words), class: 'index-rest-td-a'
-        td.index-rest-td = link_to 'Edit', edit_word_path(words), class: 'index-rest-td-a'
-        td.index-rest-td = link_to 'x',  word_path(words),
+      tr.index-tr id=words.id
+        td.index-eng #{words.eng.upcase}
+        td.index-rus #{words.rus.mb_chars.upcase.to_s}
+        td.index-rest-td = link_to 'M', word_path(words), class: 'index-rest-td-a'
+        td.index-rest-td = link_to 'E', edit_word_path(words), class: 'index-rest-td-a'
+        td.index-rest-td = link_to 'X',  word_path(words),
                                 class: 'index-rest-td-a',
                                 method: :delete, 
                                 data: { confirm: 'Are you sure?' }

@@ -7,16 +7,18 @@ class WordsController < ApplicationController
   has_scope :by_latest_ids, :using => :end_ids, only: :word, :type => :hash
 
   def word
-    offset = params[:offset].present? && params[:offset].to_i > 0 ? params[:offset] : 0
-
+    # offset = params[:offset].present? && params[:offset].to_i > 0 ? params[:offset] : 0
+    gon.allWords = Word.all
     if params[:id_from].blank? && params[:id_to].blank? && params[:first_letter].blank? && params[:end_ids].blank?
-      @word = Word.order("RANDOM()").first
+      # @word = Word.order("RANDOM()").first
+      gon.selectedWords = Word.all
     else
-      words = apply_scopes(Word.by_range_id(params[:id_from], params[:id_to]).by_first_letter(params[:first_letter]).by_latest_ids(params[:end_ids])).all
-      if params[:offset].to_i == words.length
-        params[:offset] = 0
-      end
-      @word = words.offset(params[:offset].to_i).limit(1).first
+      # words = apply_scopes(Word.by_range_id(params[:id_from], params[:id_to]).by_first_letter(params[:first_letter]).by_latest_ids(params[:end_ids])).all
+      gon.selectedWords = apply_scopes(Word.by_range_id(params[:id_from], params[:id_to]).by_first_letter(params[:first_letter]).by_latest_ids(params[:end_ids])).all
+      # if params[:offset].to_i == words.length
+      #   params[:offset] = 0
+      # end
+      # @word = words.offset(params[:offset].to_i).limit(1).first
     end
 
     @count = Word.all.length
@@ -26,11 +28,12 @@ class WordsController < ApplicationController
       @word = res.first
     end
 
-    @date = @word.created_at.to_date.to_s.split('-')
-    m = {'01' => 'January', '02' => 'February', '03' => 'March', '04' => 'April', '05' => 'May', '06' => 'June', '07' => 'July', '08' => 'August', '09' => 'September', '10' => 'October', '11' => 'November', '12' => 'December'}
-    m = m.select{|key| key == @date[1]}
-    @date[1] = m.first[1]
-    @date.slice!(2)
+    # # @date = @word.created_at.to_date.to_s.split('-')
+    # @date = gon.wordsJSON.created_at.to_date.to_s.split('-')
+    # m = {'01' => 'January', '02' => 'February', '03' => 'March', '04' => 'April', '05' => 'May', '06' => 'June', '07' => 'July', '08' => 'August', '09' => 'September', '10' => 'October', '11' => 'November', '12' => 'December'}
+    # m = m.select{|key| key == @date[1]}
+    # @date[1] = m.first[1]
+    # @date.slice!(2)
 
     respond_to do |format|
       format.html

@@ -15,10 +15,18 @@
  */
 
 $R: 'Roboto', sans-serif
-
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700')
 
-html, body 
+html
+  margin: 0 
+  height: 100%
+  padding: 0
+  border: 0
+  background-color: #212D5C
+  // box-shadow: inset 0 0 203px -54px rgba(0,0,0,0.41)
+  box-shadow: inset 0 0 13vw -3vw rgba(0,0,0,0.41)
+
+body
   margin: 0 
   height: 100%
   padding: 0
@@ -26,10 +34,6 @@ html, body
   overflow-x: hidden
   overflow-y: hidden
   font-family: $R
-  background-color: #212D5C
-  -webkit-box-shadow: inset 0px 0px 203px -54px rgba(0,0,0,0.41)
-  -moz-box-shadow: inset 0px 0px 203px -54px rgba(0,0,0,0.41)
-  box-shadow: inset 0px 0px 203px -54px rgba(0,0,0,0.41)
   
 p 
   text-align: center
@@ -41,13 +45,13 @@ table
   color: #3E3D53
 
 .index-scroll-word::-webkit-scrollbar-track
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
-  background-color: #F5F5F5
+  // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
+  background-color: #212D5C
 
 .index-scroll-word::-webkit-scrollbar
   width: 1vw
-  background-color: #F5F5F5
-
+  display: none
+  background-color: #111833
 
 .index-scroll-word::-webkit-scrollbar-thumb
   background-color: #3A50A1

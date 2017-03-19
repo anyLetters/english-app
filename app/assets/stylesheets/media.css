@@ -1,0 +1,11 @@
+@media (max-height: 320px) {
+  .upper-nav, .under-nav {
+    display: none !important;
+  }
+}
+
+@media (orientation: portrait) {
+  .sidebar-content, .options-search-button {
+    display: none;
+  }
+}
