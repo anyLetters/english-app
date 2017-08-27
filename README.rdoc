@@ -1,3 +1,4 @@
 == Personal english vocabulary
 
 This is my first application which has been uploaded to Github.
+In a few words: add words to "list" and then the application displays a random word and its translation.
